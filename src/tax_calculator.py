@@ -188,7 +188,10 @@ US_TERRITORIES_MIRROR_CODE_DATA_2025 = {
 }
 
 # Load 2025 State Tax Data from JSON
-with open("extracted_state_tax_data.json", "r") as f:
+import os
+current_dir = os.path.dirname(os.path.abspath(__file__))
+state_tax_data_path = os.path.join(current_dir, "extracted_state_tax_data.json")
+with open(state_tax_data_path, "r") as f:
     STATE_TAX_DATA_2025 = json.load(f)
 
 ACTIVATION_DATE_2026 = datetime.date(2026, 1, 1)
