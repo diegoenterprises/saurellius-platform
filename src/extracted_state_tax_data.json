@@ -1,0 +1,2227 @@
+{
+    "Ala": {
+        "standard_deductions": {
+            "single": 3000,
+            "married_filing_jointly": 8500
+        },
+        "personal_exemptions": {
+            "single": 1500,
+            "married_filing_jointly": 3000,
+            "dependent": 1000
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.02,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.04,
+                    "threshold": 500
+                },
+                {
+                    "rate": 0.05,
+                    "threshold": 3000
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.02,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.04,
+                    "threshold": 1000
+                },
+                {
+                    "rate": 0.05,
+                    "threshold": 6000
+                }
+            ]
+        },
+        "notes": [
+            "(a, b, c) 0.04 > 500 0.04 > 1000"
+        ]
+    },
+    "Alaska": {
+        "standard_deductions": {
+            "single": null,
+            "married_filing_jointly": null
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": null
+        },
+        "tax_brackets": {
+            "single": [],
+            "married_filing_jointly": []
+        },
+        "notes": []
+    },
+    "Ariz": {
+        "standard_deductions": {
+            "single": 15000,
+            "married_filing_jointly": 30000
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": "100 credit"
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.025,
+                    "threshold": 0
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.025,
+                    "threshold": 0
+                }
+            ]
+        },
+        "notes": []
+    },
+    "Ark": {
+        "standard_deductions": {
+            "single": 2410,
+            "married_filing_jointly": 4820
+        },
+        "personal_exemptions": {
+            "single": "29 credit",
+            "married_filing_jointly": "58 credit",
+            "dependent": "29 credit"
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.02,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.039,
+                    "threshold": 4500
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.02,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.039,
+                    "threshold": 4500
+                }
+            ]
+        },
+        "notes": [
+            "(d, g, h, j, kk) 0.039 > 4500 0.039 > 4500"
+        ]
+    },
+    "Calif": {
+        "standard_deductions": {
+            "single": 5540,
+            "married_filing_jointly": 11080
+        },
+        "personal_exemptions": {
+            "single": "149 credit",
+            "married_filing_jointly": "298 credit",
+            "dependent": "461 credit"
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.01,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.02,
+                    "threshold": 10756
+                },
+                {
+                    "rate": 0.04,
+                    "threshold": 25499
+                },
+                {
+                    "rate": 0.06,
+                    "threshold": 40245
+                },
+                {
+                    "rate": 0.08,
+                    "threshold": 55866
+                },
+                {
+                    "rate": 0.093,
+                    "threshold": 70606
+                },
+                {
+                    "rate": 0.103,
+                    "threshold": 360659
+                },
+                {
+                    "rate": 0.113,
+                    "threshold": 432787
+                },
+                {
+                    "rate": 0.123,
+                    "threshold": 721314
+                },
+                {
+                    "rate": 0.133,
+                    "threshold": 1000000
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.01,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.02,
+                    "threshold": 21512
+                },
+                {
+                    "rate": 0.04,
+                    "threshold": 50998
+                },
+                {
+                    "rate": 0.06,
+                    "threshold": 80490
+                },
+                {
+                    "rate": 0.08,
+                    "threshold": 111732
+                },
+                {
+                    "rate": 0.093,
+                    "threshold": 141732
+                },
+                {
+                    "rate": 0.103,
+                    "threshold": 721318
+                },
+                {
+                    "rate": 0.113,
+                    "threshold": 865574
+                },
+                {
+                    "rate": 0.123,
+                    "threshold": 1000000
+                },
+                {
+                    "rate": 0.133,
+                    "threshold": 1442628
+                }
+            ]
+        },
+        "notes": [
+            "(a, h, j, k, l, m, n, nn) 0.02 > 10756 0.02 > 21512"
+        ]
+    },
+    "Colo": {
+        "standard_deductions": {
+            "single": 15000,
+            "married_filing_jointly": 30000
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": null
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.044,
+                    "threshold": 0
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.044,
+                    "threshold": 0
+                }
+            ]
+        },
+        "notes": []
+    },
+    "Conn": {
+        "standard_deductions": {
+            "single": null,
+            "married_filing_jointly": null
+        },
+        "personal_exemptions": {
+            "single": 15000,
+            "married_filing_jointly": 24000,
+            "dependent": 0
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.02,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.045,
+                    "threshold": 10000
+                },
+                {
+                    "rate": 0.055,
+                    "threshold": 50000
+                },
+                {
+                    "rate": 0.06,
+                    "threshold": 100000
+                },
+                {
+                    "rate": 0.065,
+                    "threshold": 200000
+                },
+                {
+                    "rate": 0.069,
+                    "threshold": 250000
+                },
+                {
+                    "rate": 0.0699,
+                    "threshold": 500000
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.02,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.045,
+                    "threshold": 20000
+                },
+                {
+                    "rate": 0.055,
+                    "threshold": 100000
+                },
+                {
+                    "rate": 0.06,
+                    "threshold": 200000
+                },
+                {
+                    "rate": 0.065,
+                    "threshold": 400000
+                },
+                {
+                    "rate": 0.069,
+                    "threshold": 500000
+                },
+                {
+                    "rate": 0.0699,
+                    "threshold": 1000000
+                }
+            ]
+        },
+        "notes": [
+            "(i, p, q, r) 0.045 > 10000 0.045 > 20000"
+        ]
+    },
+    "Del": {
+        "standard_deductions": {
+            "single": 3250,
+            "married_filing_jointly": 6500
+        },
+        "personal_exemptions": {
+            "single": "110 credit",
+            "married_filing_jointly": "220 credit",
+            "dependent": "110 credit"
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.022,
+                    "threshold": 2000
+                },
+                {
+                    "rate": 0.039,
+                    "threshold": 5000
+                },
+                {
+                    "rate": 0.048,
+                    "threshold": 10000
+                },
+                {
+                    "rate": 0.052,
+                    "threshold": 20000
+                },
+                {
+                    "rate": 0.0555,
+                    "threshold": 25000
+                },
+                {
+                    "rate": 0.066,
+                    "threshold": 60000
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.022,
+                    "threshold": 2000
+                },
+                {
+                    "rate": 0.039,
+                    "threshold": 5000
+                },
+                {
+                    "rate": 0.048,
+                    "threshold": 10000
+                },
+                {
+                    "rate": 0.052,
+                    "threshold": 20000
+                },
+                {
+                    "rate": 0.0555,
+                    "threshold": 25000
+                },
+                {
+                    "rate": 0.066,
+                    "threshold": 60000
+                }
+            ]
+        },
+        "notes": [
+            "(a, h, m, s) 0.039 > 5000 0.039 > 5000"
+        ]
+    },
+    "Fla": {
+        "standard_deductions": {
+            "single": null,
+            "married_filing_jointly": null
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": null
+        },
+        "tax_brackets": {
+            "single": [],
+            "married_filing_jointly": []
+        },
+        "notes": []
+    },
+    "Ga": {
+        "standard_deductions": {
+            "single": 12000,
+            "married_filing_jointly": 24000
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": 4000
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.0539,
+                    "threshold": 0
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.0539,
+                    "threshold": 0
+                }
+            ]
+        },
+        "notes": []
+    },
+    "Hawaii": {
+        "standard_deductions": {
+            "single": 4400,
+            "married_filing_jointly": 8800
+        },
+        "personal_exemptions": {
+            "single": 1144,
+            "married_filing_jointly": 2288,
+            "dependent": 1144
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.014,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.032,
+                    "threshold": 9600
+                },
+                {
+                    "rate": 0.055,
+                    "threshold": 14400
+                },
+                {
+                    "rate": 0.064,
+                    "threshold": 19200
+                },
+                {
+                    "rate": 0.068,
+                    "threshold": 24000
+                },
+                {
+                    "rate": 0.072,
+                    "threshold": 36000
+                },
+                {
+                    "rate": 0.076,
+                    "threshold": 48000
+                },
+                {
+                    "rate": 0.079,
+                    "threshold": 125000
+                },
+                {
+                    "rate": 0.0825,
+                    "threshold": 175000
+                },
+                {
+                    "rate": 0.09,
+                    "threshold": 225000
+                },
+                {
+                    "rate": 0.1,
+                    "threshold": 275000
+                },
+                {
+                    "rate": 0.11,
+                    "threshold": 325000
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.014,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.032,
+                    "threshold": 19200
+                },
+                {
+                    "rate": 0.055,
+                    "threshold": 28800
+                },
+                {
+                    "rate": 0.064,
+                    "threshold": 38400
+                },
+                {
+                    "rate": 0.068,
+                    "threshold": 48000
+                },
+                {
+                    "rate": 0.072,
+                    "threshold": 72000
+                },
+                {
+                    "rate": 0.076,
+                    "threshold": 96000
+                },
+                {
+                    "rate": 0.079,
+                    "threshold": 250000
+                },
+                {
+                    "rate": 0.0825,
+                    "threshold": 350000
+                },
+                {
+                    "rate": 0.09,
+                    "threshold": 450000
+                },
+                {
+                    "rate": 0.1,
+                    "threshold": 550000
+                },
+                {
+                    "rate": 0.11,
+                    "threshold": 650000
+                }
+            ]
+        },
+        "notes": [
+            "(m, t) 0.032 > 9600 0.032 > 19200"
+        ]
+    },
+    "Idaho": {
+        "standard_deductions": {
+            "single": 15000,
+            "married_filing_jointly": 30000
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": null
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.05695,
+                    "threshold": 4673
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.05695,
+                    "threshold": 9346
+                }
+            ]
+        },
+        "notes": []
+    },
+    "Ill": {
+        "standard_deductions": {
+            "single": null,
+            "married_filing_jointly": null
+        },
+        "personal_exemptions": {
+            "single": 2850,
+            "married_filing_jointly": 5700,
+            "dependent": 2850
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.0495,
+                    "threshold": 0
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.0495,
+                    "threshold": 0
+                }
+            ]
+        },
+        "notes": []
+    },
+    "Ind": {
+        "standard_deductions": {
+            "single": null,
+            "married_filing_jointly": null
+        },
+        "personal_exemptions": {
+            "single": 1000,
+            "married_filing_jointly": 2000,
+            "dependent": 1000
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.03,
+                    "threshold": 0
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.03,
+                    "threshold": 0
+                }
+            ]
+        },
+        "notes": []
+    },
+    "Iowa": {
+        "standard_deductions": {
+            "single": null,
+            "married_filing_jointly": null
+        },
+        "personal_exemptions": {
+            "single": "40 credit",
+            "married_filing_jointly": "80 credit",
+            "dependent": "40 credit"
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.038,
+                    "threshold": 0
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.038,
+                    "threshold": 0
+                }
+            ]
+        },
+        "notes": [
+            "(a, h)"
+        ]
+    },
+    "Kans": {
+        "standard_deductions": {
+            "single": 3605,
+            "married_filing_jointly": 8240
+        },
+        "personal_exemptions": {
+            "single": 9160,
+            "married_filing_jointly": 18320,
+            "dependent": 2320
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.052,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.0558,
+                    "threshold": 23000
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.052,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.0558,
+                    "threshold": 46000
+                }
+            ]
+        },
+        "notes": [
+            "(a, m) 0.0558 > 23000 0.0558 > 46000"
+        ]
+    },
+    "Ky": {
+        "standard_deductions": {
+            "single": 3270,
+            "married_filing_jointly": 6540
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": null
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.04,
+                    "threshold": 0
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.04,
+                    "threshold": 0
+                }
+            ]
+        },
+        "notes": [
+            "(a, d)"
+        ]
+    },
+    "La": {
+        "standard_deductions": {
+            "single": 12500,
+            "married_filing_jointly": 25000
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": null
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.03,
+                    "threshold": 0
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.03,
+                    "threshold": 0
+                }
+            ]
+        },
+        "notes": [
+            "(x)"
+        ]
+    },
+    "Maine": {
+        "standard_deductions": {
+            "single": 15000,
+            "married_filing_jointly": 30000
+        },
+        "personal_exemptions": {
+            "single": 5150,
+            "married_filing_jointly": 10300,
+            "dependent": "300 credit"
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.058,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.0675,
+                    "threshold": 26800
+                },
+                {
+                    "rate": 0.0715,
+                    "threshold": 63450
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.058,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.0675,
+                    "threshold": 53600
+                },
+                {
+                    "rate": 0.0715,
+                    "threshold": 126900
+                }
+            ]
+        },
+        "notes": [
+            "(u, y, bb) 0.0675 > 26800 0.0675 > 53600"
+        ]
+    },
+    "Md": {
+        "standard_deductions": {
+            "single": 2700,
+            "married_filing_jointly": 5450
+        },
+        "personal_exemptions": {
+            "single": 3200,
+            "married_filing_jointly": 6400,
+            "dependent": 3200
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.02,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.03,
+                    "threshold": 1000
+                },
+                {
+                    "rate": 0.04,
+                    "threshold": 2000
+                },
+                {
+                    "rate": 0.0475,
+                    "threshold": 3000
+                },
+                {
+                    "rate": 0.05,
+                    "threshold": 100000
+                },
+                {
+                    "rate": 0.0525,
+                    "threshold": 125000
+                },
+                {
+                    "rate": 0.055,
+                    "threshold": 150000
+                },
+                {
+                    "rate": 0.0575,
+                    "threshold": 250000
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.02,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.03,
+                    "threshold": 1000
+                },
+                {
+                    "rate": 0.04,
+                    "threshold": 2000
+                },
+                {
+                    "rate": 0.0475,
+                    "threshold": 3000
+                },
+                {
+                    "rate": 0.05,
+                    "threshold": 150000
+                },
+                {
+                    "rate": 0.0525,
+                    "threshold": 175000
+                },
+                {
+                    "rate": 0.055,
+                    "threshold": 225000
+                },
+                {
+                    "rate": 0.0575,
+                    "threshold": 300000
+                }
+            ]
+        },
+        "notes": [
+            "(a, m, n, z, aa) 0.03 > 1000 0.03 > 1000"
+        ]
+    },
+    "Mass": {
+        "standard_deductions": {
+            "single": null,
+            "married_filing_jointly": null
+        },
+        "personal_exemptions": {
+            "single": 4400,
+            "married_filing_jointly": 8800,
+            "dependent": 1000
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.05,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.09,
+                    "threshold": 1083150
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.05,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.09,
+                    "threshold": 1083150
+                }
+            ]
+        },
+        "notes": []
+    },
+    "Mich": {
+        "standard_deductions": {
+            "single": null,
+            "married_filing_jointly": null
+        },
+        "personal_exemptions": {
+            "single": 5800,
+            "married_filing_jointly": 11600,
+            "dependent": 5800
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.0425,
+                    "threshold": 0
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.0425,
+                    "threshold": 0
+                }
+            ]
+        },
+        "notes": []
+    },
+    "Minn": {
+        "standard_deductions": {
+            "single": 14950,
+            "married_filing_jointly": 29900
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": 5200
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.0535,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.068,
+                    "threshold": 32570
+                },
+                {
+                    "rate": 0.0785,
+                    "threshold": 106990
+                },
+                {
+                    "rate": 0.0985,
+                    "threshold": 198630
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.0535,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.068,
+                    "threshold": 47620
+                },
+                {
+                    "rate": 0.0785,
+                    "threshold": 189180
+                },
+                {
+                    "rate": 0.0985,
+                    "threshold": 330410
+                }
+            ]
+        },
+        "notes": [
+            "(d, bb, cc, oo) 0.068 > 32570 0.068 > 47620"
+        ]
+    },
+    "Miss": {
+        "standard_deductions": {
+            "single": 2300,
+            "married_filing_jointly": 4600
+        },
+        "personal_exemptions": {
+            "single": 6000,
+            "married_filing_jointly": 12000,
+            "dependent": 1500
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.044,
+                    "threshold": 10000
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.044,
+                    "threshold": 10000
+                }
+            ]
+        },
+        "notes": []
+    },
+    "Mo": {
+        "standard_deductions": {
+            "single": 15000,
+            "married_filing_jointly": 30000
+        },
+        "personal_exemptions": {
+            "single": "n.a",
+            "married_filing_jointly": "n.a",
+            "dependent": "n.a"
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.02,
+                    "threshold": 1313
+                },
+                {
+                    "rate": 0.025,
+                    "threshold": 2626
+                },
+                {
+                    "rate": 0.03,
+                    "threshold": 3939
+                },
+                {
+                    "rate": 0.035,
+                    "threshold": 5252
+                },
+                {
+                    "rate": 0.04,
+                    "threshold": 6565
+                },
+                {
+                    "rate": 0.045,
+                    "threshold": 7878
+                },
+                {
+                    "rate": 0.047,
+                    "threshold": 9191
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.02,
+                    "threshold": 1313
+                },
+                {
+                    "rate": 0.025,
+                    "threshold": 2626
+                },
+                {
+                    "rate": 0.03,
+                    "threshold": 3939
+                },
+                {
+                    "rate": 0.035,
+                    "threshold": 5252
+                },
+                {
+                    "rate": 0.04,
+                    "threshold": 6565
+                },
+                {
+                    "rate": 0.045,
+                    "threshold": 7878
+                },
+                {
+                    "rate": 0.047,
+                    "threshold": 9191
+                }
+            ]
+        },
+        "notes": [
+            "(a, b, m, u, bb) 0.025 > 2626 0.025 > 2626"
+        ]
+    },
+    "Mont": {
+        "standard_deductions": {
+            "single": 15000,
+            "married_filing_jointly": 30000
+        },
+        "personal_exemptions": {
+            "single": "n.a",
+            "married_filing_jointly": "n.a",
+            "dependent": "n.a"
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.047,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.059,
+                    "threshold": 21100
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.047,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.059,
+                    "threshold": 42200
+                }
+            ]
+        },
+        "notes": [
+            "(o, u, bb) 0.059 > 21100 0.059 > 42200"
+        ]
+    },
+    "Nebr": {
+        "standard_deductions": {
+            "single": 8600,
+            "married_filing_jointly": 17200
+        },
+        "personal_exemptions": {
+            "single": "171 credit",
+            "married_filing_jointly": "342 credit",
+            "dependent": "171 credit"
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.0246,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.0351,
+                    "threshold": 4030
+                },
+                {
+                    "rate": 0.0501,
+                    "threshold": 24120
+                },
+                {
+                    "rate": 0.052,
+                    "threshold": 38870
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.0246,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.0351,
+                    "threshold": 8040
+                },
+                {
+                    "rate": 0.0501,
+                    "threshold": 48250
+                },
+                {
+                    "rate": 0.052,
+                    "threshold": 77730
+                }
+            ]
+        },
+        "notes": [
+            "(d, h, m, bb) 0.0351 > 4030 0.0351 > 8040"
+        ]
+    },
+    "Nev": {
+        "standard_deductions": {
+            "single": null,
+            "married_filing_jointly": null
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": null
+        },
+        "tax_brackets": {
+            "single": [],
+            "married_filing_jointly": []
+        },
+        "notes": []
+    },
+    "NH": {
+        "standard_deductions": {
+            "single": "n.a",
+            "married_filing_jointly": "n.a"
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": null
+        },
+        "tax_brackets": {
+            "single": [],
+            "married_filing_jointly": []
+        },
+        "notes": []
+    },
+    "NJ": {
+        "standard_deductions": {
+            "single": null,
+            "married_filing_jointly": null
+        },
+        "personal_exemptions": {
+            "single": 1000,
+            "married_filing_jointly": 2000,
+            "dependent": 1500
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.014,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.0175,
+                    "threshold": 20000
+                },
+                {
+                    "rate": 0.035,
+                    "threshold": 35000
+                },
+                {
+                    "rate": 0.05525,
+                    "threshold": 40000
+                },
+                {
+                    "rate": 0.0637,
+                    "threshold": 75000
+                },
+                {
+                    "rate": 0.0897,
+                    "threshold": 500000
+                },
+                {
+                    "rate": 0.1075,
+                    "threshold": 1000000
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.014,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.0175,
+                    "threshold": 20000
+                },
+                {
+                    "rate": 0.0245,
+                    "threshold": 50000
+                },
+                {
+                    "rate": 0.035,
+                    "threshold": 70000
+                },
+                {
+                    "rate": 0.05525,
+                    "threshold": 80000
+                },
+                {
+                    "rate": 0.0637,
+                    "threshold": 150000
+                },
+                {
+                    "rate": 0.0897,
+                    "threshold": 500000
+                },
+                {
+                    "rate": 0.1075,
+                    "threshold": 1000000
+                }
+            ]
+        },
+        "notes": [
+            "(a) 0.0175 > 20000 0.0175 > 20000"
+        ]
+    },
+    "NM": {
+        "standard_deductions": {
+            "single": 15000,
+            "married_filing_jointly": 30000
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": 4000
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.015,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.032,
+                    "threshold": 5500
+                },
+                {
+                    "rate": 0.043,
+                    "threshold": 16500
+                },
+                {
+                    "rate": 0.047,
+                    "threshold": 33500
+                },
+                {
+                    "rate": 0.049,
+                    "threshold": 66500
+                },
+                {
+                    "rate": 0.059,
+                    "threshold": 210000
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.015,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.032,
+                    "threshold": 8000
+                },
+                {
+                    "rate": 0.043,
+                    "threshold": 25000
+                },
+                {
+                    "rate": 0.047,
+                    "threshold": 50000
+                },
+                {
+                    "rate": 0.049,
+                    "threshold": 100000
+                },
+                {
+                    "rate": 0.059,
+                    "threshold": 315000
+                }
+            ]
+        },
+        "notes": [
+            "(m, o, u, jj) 0.032 > 5500 0.032 > 8000"
+        ]
+    },
+    "NY": {
+        "standard_deductions": {
+            "single": 8000,
+            "married_filing_jointly": 16050
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": 1000
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.04,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.045,
+                    "threshold": 8500
+                },
+                {
+                    "rate": 0.0525,
+                    "threshold": 11700
+                },
+                {
+                    "rate": 0.055,
+                    "threshold": 13900
+                },
+                {
+                    "rate": 0.06,
+                    "threshold": 80650
+                },
+                {
+                    "rate": 0.0685,
+                    "threshold": 215400
+                },
+                {
+                    "rate": 0.0965,
+                    "threshold": 1077550
+                },
+                {
+                    "rate": 0.103,
+                    "threshold": 5000000
+                },
+                {
+                    "rate": 0.109,
+                    "threshold": 25000000
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.04,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.045,
+                    "threshold": 17150
+                },
+                {
+                    "rate": 0.0525,
+                    "threshold": 23600
+                },
+                {
+                    "rate": 0.055,
+                    "threshold": 27900
+                },
+                {
+                    "rate": 0.06,
+                    "threshold": 161550
+                },
+                {
+                    "rate": 0.0685,
+                    "threshold": 323200
+                },
+                {
+                    "rate": 0.0965,
+                    "threshold": 2155350
+                },
+                {
+                    "rate": 0.103,
+                    "threshold": 5000000
+                },
+                {
+                    "rate": 0.109,
+                    "threshold": 25000000
+                }
+            ]
+        },
+        "notes": [
+            "(a, i) 0.045 > 8500 0.045 > 17150"
+        ]
+    },
+    "NC": {
+        "standard_deductions": {
+            "single": 12750,
+            "married_filing_jointly": 25500
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": null
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.0425,
+                    "threshold": 0
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.0425,
+                    "threshold": 0
+                }
+            ]
+        },
+        "notes": []
+    },
+    "ND": {
+        "standard_deductions": {
+            "single": 15000,
+            "married_filing_jointly": 30000
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": null
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.0195,
+                    "threshold": 48475
+                },
+                {
+                    "rate": 0.025,
+                    "threshold": 244825
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.0195,
+                    "threshold": 80975
+                },
+                {
+                    "rate": 0.025,
+                    "threshold": 298075
+                }
+            ]
+        },
+        "notes": [
+            "(j, o, u) 0.025 > 244825 0.025 > 298075"
+        ]
+    },
+    "Ohio": {
+        "standard_deductions": {
+            "single": null,
+            "married_filing_jointly": null
+        },
+        "personal_exemptions": {
+            "single": 2400,
+            "married_filing_jointly": 4800,
+            "dependent": 2400
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.0275,
+                    "threshold": 26050
+                },
+                {
+                    "rate": 0.035,
+                    "threshold": 100000
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.0275,
+                    "threshold": 26050
+                },
+                {
+                    "rate": 0.035,
+                    "threshold": 100000
+                }
+            ]
+        },
+        "notes": [
+            "(a, j, dd, pp) 0.035 > 100000 0.035 > 100000"
+        ]
+    },
+    "Okla": {
+        "standard_deductions": {
+            "single": 6350,
+            "married_filing_jointly": 12700
+        },
+        "personal_exemptions": {
+            "single": 1000,
+            "married_filing_jointly": 2000,
+            "dependent": 1000
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.0025,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.0075,
+                    "threshold": 1000
+                },
+                {
+                    "rate": 0.0175,
+                    "threshold": 2500
+                },
+                {
+                    "rate": 0.0275,
+                    "threshold": 3750
+                },
+                {
+                    "rate": 0.0375,
+                    "threshold": 4900
+                },
+                {
+                    "rate": 0.0475,
+                    "threshold": 7200
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.0025,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.0075,
+                    "threshold": 2000
+                },
+                {
+                    "rate": 0.0175,
+                    "threshold": 5000
+                },
+                {
+                    "rate": 0.0275,
+                    "threshold": 7500
+                },
+                {
+                    "rate": 0.0375,
+                    "threshold": 9800
+                },
+                {
+                    "rate": 0.0475,
+                    "threshold": 14400
+                }
+            ]
+        },
+        "notes": [
+            "(m) 0.0075 > 1000 0.0075 > 2000"
+        ]
+    },
+    "Ore": {
+        "standard_deductions": {
+            "single": 2800,
+            "married_filing_jointly": 5600
+        },
+        "personal_exemptions": {
+            "single": "250 credit",
+            "married_filing_jointly": "500 credit",
+            "dependent": "250 credit"
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.0475,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.0675,
+                    "threshold": 4400
+                },
+                {
+                    "rate": 0.0875,
+                    "threshold": 11050
+                },
+                {
+                    "rate": 0.099,
+                    "threshold": 125000
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.0475,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.0675,
+                    "threshold": 8800
+                },
+                {
+                    "rate": 0.0875,
+                    "threshold": 22100
+                },
+                {
+                    "rate": 0.099,
+                    "threshold": 250000
+                }
+            ]
+        },
+        "notes": [
+            "(a, b, d, h, m, bb, ee, nn) 0.0675 > 4400 0.0675 > 8800"
+        ]
+    },
+    "Pa": {
+        "standard_deductions": {
+            "single": null,
+            "married_filing_jointly": null
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": null
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.0307,
+                    "threshold": 0
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.0307,
+                    "threshold": 0
+                }
+            ]
+        },
+        "notes": []
+    },
+    "RI": {
+        "standard_deductions": {
+            "single": 10900,
+            "married_filing_jointly": 21800
+        },
+        "personal_exemptions": {
+            "single": 5100,
+            "married_filing_jointly": 10200,
+            "dependent": 5100
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.0375,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.0475,
+                    "threshold": 79900
+                },
+                {
+                    "rate": 0.0599,
+                    "threshold": 181650
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.0375,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.0475,
+                    "threshold": 79900
+                },
+                {
+                    "rate": 0.0599,
+                    "threshold": 181650
+                }
+            ]
+        },
+        "notes": [
+            "(d, bb, ff) 0.0475 > 79900 0.0475 > 79900"
+        ]
+    },
+    "SC": {
+        "standard_deductions": {
+            "single": 15000,
+            "married_filing_jointly": 30000
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": 4790
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.0,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.03,
+                    "threshold": 3560
+                },
+                {
+                    "rate": 0.062,
+                    "threshold": 17830
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.0,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.03,
+                    "threshold": 3560
+                },
+                {
+                    "rate": 0.062,
+                    "threshold": 17830
+                }
+            ]
+        },
+        "notes": [
+            "(d, o, u, bb, ll, qq) 0.03 > 3560 0.03 > 3560"
+        ]
+    },
+    "SD": {
+        "standard_deductions": {
+            "single": null,
+            "married_filing_jointly": null
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": null
+        },
+        "tax_brackets": {
+            "single": [],
+            "married_filing_jointly": []
+        },
+        "notes": []
+    },
+    "Tenn": {
+        "standard_deductions": {
+            "single": null,
+            "married_filing_jointly": null
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": null
+        },
+        "tax_brackets": {
+            "single": [],
+            "married_filing_jointly": []
+        },
+        "notes": []
+    },
+    "Tex": {
+        "standard_deductions": {
+            "single": null,
+            "married_filing_jointly": null
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": null
+        },
+        "tax_brackets": {
+            "single": [],
+            "married_filing_jointly": []
+        },
+        "notes": []
+    },
+    "Utah": {
+        "standard_deductions": {
+            "single": "900 credit",
+            "married_filing_jointly": "1800 credit"
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": 2046
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.0455,
+                    "threshold": 0
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.0455,
+                    "threshold": 0
+                }
+            ]
+        },
+        "notes": []
+    },
+    "Vt": {
+        "standard_deductions": {
+            "single": 7400,
+            "married_filing_jointly": 14850
+        },
+        "personal_exemptions": {
+            "single": 5100,
+            "married_filing_jointly": 10200,
+            "dependent": 5100
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.0335,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.066,
+                    "threshold": 47900
+                },
+                {
+                    "rate": 0.076,
+                    "threshold": 116000
+                },
+                {
+                    "rate": 0.0875,
+                    "threshold": 242000
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.0335,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.066,
+                    "threshold": 79950
+                },
+                {
+                    "rate": 0.076,
+                    "threshold": 193300
+                },
+                {
+                    "rate": 0.0875,
+                    "threshold": 294600
+                }
+            ]
+        },
+        "notes": [
+            "(j, n, hh, mm) 0.066 > 47900 0.066 > 79950"
+        ]
+    },
+    "Va": {
+        "standard_deductions": {
+            "single": 8500,
+            "married_filing_jointly": 17000
+        },
+        "personal_exemptions": {
+            "single": 930,
+            "married_filing_jointly": 1860,
+            "dependent": 930
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.02,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.03,
+                    "threshold": 3000
+                },
+                {
+                    "rate": 0.05,
+                    "threshold": 5000
+                },
+                {
+                    "rate": 0.0575,
+                    "threshold": 17000
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.02,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.03,
+                    "threshold": 3000
+                },
+                {
+                    "rate": 0.05,
+                    "threshold": 5000
+                },
+                {
+                    "rate": 0.0575,
+                    "threshold": 17000
+                }
+            ]
+        },
+        "notes": [
+            "(m)   0.03 > 3000 0.03 > 3000"
+        ]
+    },
+    "Wash": {
+        "standard_deductions": {
+            "single": 270000,
+            "married_filing_jointly": 270000
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": null
+        },
+        "tax_brackets": {
+            "single": [],
+            "married_filing_jointly": []
+        },
+        "notes": []
+    },
+    "WVa": {
+        "standard_deductions": {
+            "single": null,
+            "married_filing_jointly": null
+        },
+        "personal_exemptions": {
+            "single": 2000,
+            "married_filing_jointly": 4000,
+            "dependent": 2000
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.0222,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.0296,
+                    "threshold": 10000
+                },
+                {
+                    "rate": 0.0333,
+                    "threshold": 25000
+                },
+                {
+                    "rate": 0.0444,
+                    "threshold": 40000
+                },
+                {
+                    "rate": 0.0482,
+                    "threshold": 60000
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.0222,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.0296,
+                    "threshold": 10000
+                },
+                {
+                    "rate": 0.0333,
+                    "threshold": 25000
+                },
+                {
+                    "rate": 0.0444,
+                    "threshold": 40000
+                },
+                {
+                    "rate": 0.0482,
+                    "threshold": 60000
+                }
+            ]
+        },
+        "notes": [
+            "(a, m) 0.0296 > 10000 0.0296 > 10000"
+        ]
+    },
+    "Wis": {
+        "standard_deductions": {
+            "single": 13560,
+            "married_filing_jointly": 25110
+        },
+        "personal_exemptions": {
+            "single": 700,
+            "married_filing_jointly": 1400,
+            "dependent": 700
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.035,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.044,
+                    "threshold": 14680
+                },
+                {
+                    "rate": 0.053,
+                    "threshold": 29370
+                },
+                {
+                    "rate": 0.0765,
+                    "threshold": 323290
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.035,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.044,
+                    "threshold": 19580
+                },
+                {
+                    "rate": 0.053,
+                    "threshold": 39150
+                },
+                {
+                    "rate": 0.0765,
+                    "threshold": 431060
+                }
+            ]
+        },
+        "notes": [
+            "(d, m, bb, ii) 0.044 > 14680 0.044 > 19580"
+        ]
+    },
+    "Wyo": {
+        "standard_deductions": {
+            "single": null,
+            "married_filing_jointly": null
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": null
+        },
+        "tax_brackets": {
+            "single": [],
+            "married_filing_jointly": []
+        },
+        "notes": []
+    },
+    "DC": {
+        "standard_deductions": {
+            "single": 15000,
+            "married_filing_jointly": 30000
+        },
+        "personal_exemptions": {
+            "single": null,
+            "married_filing_jointly": null,
+            "dependent": null
+        },
+        "tax_brackets": {
+            "single": [
+                {
+                    "rate": 0.04,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.06,
+                    "threshold": 10000
+                },
+                {
+                    "rate": 0.065,
+                    "threshold": 40000
+                },
+                {
+                    "rate": 0.085,
+                    "threshold": 60000
+                },
+                {
+                    "rate": 0.0925,
+                    "threshold": 250000
+                },
+                {
+                    "rate": 0.0975,
+                    "threshold": 500000
+                },
+                {
+                    "rate": 0.1075,
+                    "threshold": 1000000
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "rate": 0.04,
+                    "threshold": 0
+                },
+                {
+                    "rate": 0.06,
+                    "threshold": 10000
+                },
+                {
+                    "rate": 0.065,
+                    "threshold": 40000
+                },
+                {
+                    "rate": 0.085,
+                    "threshold": 60000
+                },
+                {
+                    "rate": 0.0925,
+                    "threshold": 250000
+                },
+                {
+                    "rate": 0.0975,
+                    "threshold": 500000
+                },
+                {
+                    "rate": 0.1075,
+                    "threshold": 1000000
+                }
+            ]
+        },
+        "notes": [
+            "(u) 0.06 > 10000 0.06 > 10000",
+            "(a) Local income taxes are excluded. Ten states have county- or city-level income taxes; the average effective rates expressed as a percentage of AGI within each jurisdiction (data for 2022, the latest year available, come from the IRS and U.S. Census Bureau) are: AL--0.09%; IN--0.49%; IA--0.09%; KY--1.31%; MD--2.51%; MI--0.18%; MO--0.21%; NY--1.68%; OH--1.49%; PA--1.07%. In CA, CO, DE, KS, NJ, OR, and WV some jurisdictions have payroll taxes, flat-rate wage taxes, or interest and dividend income taxes. See Jared Walczak, Janelle Fritts, and Maxwell James, \u201cLocal Income Taxes: A Primer,\u201d Tax Foundation, February 23, 2023, https://taxfoundation.org/local-income-taxes-2023/.",
+            "(b) These states allow some or all of federal income tax paid to be deducted from state taxable income.",
+            "(c) For single taxpayers with AGI not exceeding $25,999, the standard deduction is $3,000. This standard deduction amount is reduced by $25 for every additional $500 of AGI, not to fall below $2,500. For Married Filing Joint (MFJ) taxpayers with AGI not exceeding $25,999, the standard deduction is $8,500. This standard deduction amount is reduced by $175 for every additional $500 of AGI, not to fall below $5,000. For all taxpayers with AGI of $50,000 or less and claiming a dependent, the dependent exemption is $1,000. This amount is reduced to $500 per dependent for taxpayers with AGI above $50,000 and equal to or less than $100,000. For taxpayers with more than $100,000 in AGI, the dependent exemption is $300 per dependent.",
+            "(d) Standard deduction and/or personal exemption is adjusted annually for inflation. Inflation-adjusted amounts for tax year 2025 are shown.",
+            "(e) Arizona's standard deduction can be adjusted upward by an amount equal to 33 percent (as of TY 2024) of the amount the taxpayer would have claimed in charitable deductions if the taxpayer had claimed itemized deductions.",
+            "(f) In lieu of a dependent exemption, Arizona offers a dependent tax credit of $100 per dependent under the age of 17 and $25 per dependent age 17 and older. The credit begins to phase out for taxpayers with federal adjusted gross income (FAGI) above $200,000 (single filers) or $400,000 (MFJ).",
+            "(g) Rates apply to individuals earning more than $89,600. A separate tax tables exist for individuals earning $89,600 or less, with rates of 2 percent on income greater than or equal to $5,300; 3 percent on income greater than or equal to $10,600; 3.4 percent on income greater than or equal to $15,100; and 3.9 percent on income greater than $25,000 but less than or equal to $89,600. ",
+            "(h) Standard deduction or personal exemption is structured as a tax credit.",
+            "(i) Connecticut and New York have \"tax benefit recapture,\" by which many high-income taxpayers pay their top tax rate on all income, not just on amounts above the benefit threshold.",
+            "(j) Bracket levels adjusted for inflation each year. Inflation-adjusted bracket widths for 2025 were not available as of publication, so table reflects 2024 inflation-adjusted bracket widths.",
+            "(k) Exemption credits phase out for single taxpayers by $6 for each $2,500 of federal AGI above $237,035 and for MFJ filers by $12 for each $2,500 of federal AGI above $474,075. The credit cannot be reduced to below zero.",
+            "(l) Rates include the additional mental health services tax at the rate of 1 percent on taxable income in excess of $1 million. Rates exclude a payroll tax of 1.1 percent to fund the state\u2019s disability insurance program. Effecting as of TY 2024, there is no wage ceiling for this payroll tax, which means that the state\u2019s top individual income tax rate on wage income becomes 14.4 percent.",
+            "(m) State provides a state-defined personal exemption amount for each exemption available and/or deductible under the Internal Revenue Code. Under the Tax Cuts and Jobs Act, the personal exemption is set at $0 until 2026 but not eliminated. Because it is still available, these state-defined personal exemptions remain available in some states but are set to $0 in other states.",
+            "(n) Standard deduction and/or personal exemption adjusted annually for inflation, but the 2025 inflation adjustment was not available at time of publication, so table reflects actual 2024 amount(s).",
+            "(o) Colorado, Montana, New Mexico, North Dakota, and South Carolina include the federal standard deduction in their income starting point.",
+            "(p) Connecticut has a complex set of phaseout provisions. For each single taxpayer whose Connecticut AGI exceeds $56,500, the amount of the taxpayer's Connecticut taxable income to which the 2 percent tax rate applies shall be reduced by $1,000 for each $5,000, or fraction thereof, by which the taxpayer's Connecticut AGI exceeds said amount. Any such amount will have a tax rate of 4.5 percent instead of 2 percent. Each single taxpayer whose Connecticut AGI exceeds $105,000 shall pay an amount equal to $25 for each $5,000, or fraction thereof, by which the taxpayer's Connecticut AGI exceeds $105,000, up to a maximum payment of $250. Additionally, each single taxpayer whose Connecticut AGI exceeds $200,000 shall pay an amount equal to $90 for each $5,000, or fraction thereof, by which the taxpayer's Connecticut AGI exceeds $200,000 but is less than $500,000, and by an additional $50 for each $5,000, or fraction thereof, by which the taxpayer\u2019s AGI exceeds $500,000, up to a maximum payment of $3,150. For each MFJ taxpayer whose Connecticut AGI exceeds $100,500, the amount of the taxpayer's Connecticut taxable income to which the 2 percent tax rate applies shall be reduced by $2,000 for each $5,000, or fraction thereof, by which the taxpayer's Connecticut AGI exceeds said amount. Any such amount of Connecticut taxable income to which, as provided in the preceding sentence, the 2 percent tax rate does not apply shall be an amount to which the 4.5 percent tax rate shall apply. Each MFJ filer whose Connecticut AGI exceeds $210,000 shall pay an amount equal to $50 for each $10,000, or fraction thereof, by which the taxpayer's Connecticut AGI exceeds $210,000, up to a maximum payment of $500. Additionally, each MFJ taxpayer whose Connecticut AGI exceeds $400,000 shall pay, in addition to the amount above, an amount equal to $180 for each $10,000, or fraction thereof, by which the taxpayer's Connecticut AGI exceeds $400,000, up to a maximum of $5,400, and a further $100 for each $10,000, or fraction thereof, by which Connecticut AGI exceeds $1 million, up to a combined maximum payment of $6,300.",
+            "(q) Connecticut taxpayers are also given personal tax credits (1-75%) based upon adjusted gross income.",
+            "(r) Connecticut's personal exemption phases out by $1,000 for each $1,000, or fraction thereof, by which a single filer's Connecticut AGI exceeds $30,000 and a MFJ filer's Connecticut AGI exceeds $48,000.",
+            "(s) In addition to the individual income tax rates, Delaware imposes a tax on lump-sum distributions.",
+            "(t) Additionally, Hawaii allows any taxpayer, other than a corporation, acting as a business entity in more than one state and required by law to file a return, to report and pay a tax of 0.5 percent of its annual gross sales (1) where the taxpayer's only activities in Hawaii consist of sales, (2) when the taxpayer does not own or rent real estate or tangible personal property, and (3) when the taxpayer\u2019s annual gross sales in or into Hawaii do not exceed $100,000. Haw. Rev. Stat. \u00a7 235-51 (2015).",
+            "(u) Deduction and/or exemption tied to federal tax system. Federal deductions and exemptions are indexed for inflation, and where applicable, the tax year 2025 inflation-adjusted amounts are shown. ",
+            "(v) As of June 1, 2017, taxpayers cannot claim the personal exemption if their adjusted gross income exceeds $250,000 (single filers) or $500,000 (MFJ).",
+            "(w) $1,000 is a base exemption. If dependents meet certain conditions, filers can take an additional $1,500 exemption for each. If a taxpayer is claiming a child as a dependent for the first taxable year in which the exemption is allowed, the taxpayer is now permitted to claim an amount of $3,000, instead of $1,500.",
+            "(x) Standard deduction will be adjusted for inflation beginning in 2026.",
+            "(y) Maine's personal exemption begins to phase out for taxpayers with income exceeding $323,900 (single filers) or $388,650 (MFJ). These phaseout thresholds are adjusted annually for inflation, but 2025 inflation adjustments were not available at the time of publication. The standard deduction amounts for 2025 are phased out for taxpayers with Maine income over $100,000 (single filers) or $200,050 (MFJ). The dependent personal exemption is structured as a tax credit and begins to phase out for taxpayers with income exceeding $200,000 (head of household) or $400,000 (married filing jointly).",
+            "(z) The standard deduction is 15 percent of income with a minimum of $1,800 and a cap of $2,700 for single filers and married filing separately filers. The standard deduction is a minimum of $3,650 and capped at $5,450 for MFJ filers, head of household filers, and qualifying surviving spouses. The minimum and maximum standard deduction amounts are adjusted annually for inflation. 2025 inflation-adjusted amounts were not announced as of publication, so 2024 inflation-adjusted amounts are shown.",
+            "(aa) The exemption amount has the following phaseout schedule: If AGI is above $100,000 for single filers and above $150,000 for married filers, the $3,200 exemption begins to be phased out. If AGI is above $150,000 for single filers and above $200,000 for married filers, the exemption is phased out entirely.",
+            "(bb) Bracket levels adjusted for inflation each year. Inflation-adjusted bracket levels for 2025 are shown. ",
+            "(cc) For taxpayers whose AGI exceeds $119,475 (married filing separately) or $238,950 (all other filers), Minnesota\u2019s standard deduction is reduced by 3 percent of the excess of the taxpayer\u2019s federal AGI over the applicable amount but not over $165,150 (married filing separately) or $330,300 (all other filers), plus 10 percent of the taxpayer's federal adjusted gross income over the second threshold, or 80 percent of the standard deduction otherwise allowable, whichever is less.",
+            "(dd) Ohio's personal exemption is $2,400 for an AGI of $40,000 or less, $2,150 if AGI is more than $40,000 but less than or equal to $80,000, and $1,900 if AGI is greater than $80,000. ",
+            "(ee) The personal exemption credit is not allowed if federal AGI exceeds $100,000 for single filers or $200,000 for MFJ.",
+            "(ff) The phaseout range for the standard deduction, personal exemption, and dependency exemption is $254,250 to $283,250. For taxpayers with modified Federal AGI exceeding $283,250, no standard deduction, personal exemption, or dependency exemption is available.",
+            "(gg) The standard deduction is taken in the form of a nonrefundable credit of 6 percent of the federal standard or itemized deduction amount, excluding the deduction for state or local income tax. This credit phases out at 1.3 cents per dollar of AGI above $17,652 ($35,304 for MFJ) as of 2024.",
+            "(hh) For taxpayers with federal AGI that exceeds $150,000, the taxpayer will pay the greater of state income tax or 3 percent of federal AGI.",
+            "(ii) The standard deduction begins to phase out at $19,549 in income for single filers and $28,209 in income for joint filers. The standard deduction phases out to zero at $132,549 for single filers and $155,169 for joint filers.",
+            "(jj) In lieu of the suspended personal exemption, New Mexico offers a deduction of $4,000 for all but one of a taxpayer\u2019s dependents.",
+            "(kk) Taxpayers with net income greater than or equal to $89,600 but not greater than $92,700 shall reduce the amount of tax due by deducting a bracket adjustment amount. ",
+            "(ll) The dependent deduction/exemption is adjusted annually for inflation, but the 2025 amount was not available at the time of publication, so the 2024 amount is shown.",
+            "(mm) Taxpayers also receive an additional deduction of $1,200 for each standard deduction box checked on federal Form 1040.",
+            "(nn) California and Oregon do not fully index their top brackets.",
+            "(oo) Minnesota has a surtax on individuals, estates, and trusts equal to 1% of net investment income over $1 million.",
+            "(pp) Ohio's personal exemption is adjusted periodically based on changes in the GDP deflator. ",
+            "(qq) South Carolina's withholding tables for 2025 assume a top marginal rate of 6.2 percent.",
+            "(rr) In Massachusetts, rates exclude the paid family and medical leave payroll tax. Employers must withhold 0.46 percent of employees' eligible wages. Additionally, employers with 25 or more employees contribute an extra 0.42 percent of eligible wages.",
+            "(ss) In Washington, the rate excludes the 0.58 percent payroll tax that funds the long-term care insurance program (WA Cares). Employers withhold this tax from employees' gross wages.  "
+        ]
+    }
+}
