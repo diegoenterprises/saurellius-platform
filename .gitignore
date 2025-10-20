@@ -21,3 +21,8 @@ logs
 .DS_Store
 thumbs.db
 
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
