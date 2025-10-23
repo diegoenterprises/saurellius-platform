@@ -3,7 +3,8 @@ import sys
 # DON'T CHANGE THIS !!!
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, jsonify
+from datetime import datetime
 from src.models.user import db
 from src.routes.user import user_bp
 from src.routes.paystub import paystub_bp
@@ -49,3 +50,9 @@ def serve(path):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
+
+# Health check endpoint for Elastic Beanstalk
+@app.route('/health', methods=['GET'])
+def health_check():
+    """Health check endpoint for Elastic Beanstalk"""
+    return jsonify({'status': 'healthy', 'timestamp': datetime.utcnow().isoformat()}), 200
