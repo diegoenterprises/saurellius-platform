@@ -7,12 +7,21 @@ from flask import Flask, send_from_directory
 from src.models.user import db
 from src.routes.user import user_bp
 from src.routes.paystub import paystub_bp
+from src.routes.auth import auth_bp
+from src.routes.subscription import subscription_bp
+from src.routes.paystub_advanced import paystub_advanced_bp
+from src.routes.dashboard import dashboard_bp
 
 app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'static'))
 app.config['SECRET_KEY'] = 'asdf#FGSgvasgf$5$WGT'
 
+# Register blueprints
 app.register_blueprint(user_bp, url_prefix='/api')
 app.register_blueprint(paystub_bp, url_prefix='/api')
+app.register_blueprint(auth_bp, url_prefix='/api/auth')
+app.register_blueprint(subscription_bp, url_prefix='/api/subscription')
+app.register_blueprint(paystub_advanced_bp, url_prefix='/api/paystubs')
+app.register_blueprint(dashboard_bp, url_prefix='/api/dashboard')
 
 # uncomment if you need to use database
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://saurelliusadmin:ManusPassword123!@saurellius-db.cabe8skwsu5v.us-east-1.rds.amazonaws.com:5432/saurellius_db"
