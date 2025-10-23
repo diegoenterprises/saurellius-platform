@@ -31,6 +31,12 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
+# Health check endpoint for Elastic Beanstalk
+@app.route('/health', methods=['GET'])
+def health_check():
+    """Health check endpoint for Elastic Beanstalk"""
+    return jsonify({'status': 'healthy', 'timestamp': datetime.utcnow().isoformat()}), 200
+
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve(path):
@@ -50,9 +56,3 @@ def serve(path):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
-
-# Health check endpoint for Elastic Beanstalk
-@app.route('/health', methods=['GET'])
-def health_check():
-    """Health check endpoint for Elastic Beanstalk"""
-    return jsonify({'status': 'healthy', 'timestamp': datetime.utcnow().isoformat()}), 200
