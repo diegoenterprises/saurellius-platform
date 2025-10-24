@@ -21,6 +21,8 @@ from decimal import Decimal
 import uuid
 import hashlib
 import json
+import os
+from src.snappt_compliant_generator import generate_snappt_compliant_paystub
 
 paystub_complete_bp = Blueprint('paystub_complete', __name__)
 
@@ -302,6 +304,70 @@ def generate_paystub(current_user):
     
     db.session.add(paystub)
     db.session.flush()
+    
+    # Generate PDF using the perfect snappt_compliant_generator
+    pdf_filename = f"paystub_{paystub.id}_{paystub.paystub_number}_{pay_date.strftime('%Y%m%d')}.pdf"
+    pdf_output_path = f"/tmp/{pdf_filename}"
+    
+    # Prepare data for PDF generator
+    paystub_pdf_data = {
+        'company': {
+            'name': company.legal_name,
+            'address': f"{company.address_street}, {company.address_city}, {company.address_state} {company.address_zip}" if company.address_street else 'N/A',
+            'ein': company.ein
+        },
+        'employee': {
+            'name': employee.get_full_name().upper(),
+            'address': f"{employee.address_street}, {employee.address_city}, {employee.address_state} {employee.address_zip}" if employee.address_street else 'N/A',
+            'state': employee.address_state,
+            'ssn_masked': f"XXX-XX-{employee.ssn_last_four}"
+        },
+        'pay_info': {
+            'period_start': period_start.strftime('%m/%d/%Y'),
+            'period_end': period_end.strftime('%m/%d/%Y'),
+            'pay_date': pay_date.strftime('%m/%d/%Y'),
+            'check_number': paystub.check_number or f"CHK{paystub.paystub_number:06d}"
+        },
+        'earnings': [
+            {'description': 'Regular Pay', 'hours': float(paystub.regular_hours), 'rate': float(employee.hourly_rate) if employee.hourly_rate else 0, 'current': float(paystub.regular_earnings), 'ytd': float(paystub.ytd_gross_pay)},
+        ],
+        'deductions': [
+            {'description': 'Federal Income Tax', 'current': float(paystub.federal_income_tax), 'ytd': float(paystub.ytd_federal_income_tax)},
+            {'description': 'Social Security', 'current': float(paystub.social_security_tax), 'ytd': float(paystub.ytd_social_security_tax)},
+            {'description': 'Medicare', 'current': float(paystub.medicare_tax), 'ytd': float(paystub.ytd_medicare_tax)},
+            {'description': 'State Income Tax', 'current': float(paystub.state_income_tax), 'ytd': float(paystub.ytd_state_income_tax)},
+        ],
+        'summary': {
+            'gross_pay': float(paystub.gross_pay),
+            'total_deductions': float(paystub.federal_income_tax + paystub.social_security_tax + paystub.medicare_tax + paystub.state_income_tax),
+            'net_pay': float(paystub.net_pay),
+            'ytd_gross': float(paystub.ytd_gross_pay),
+            'ytd_net': float(paystub.ytd_net_pay)
+        },
+        'verification': {
+            'verification_id': paystub.verification_id,
+            'document_serial': paystub.document_serial,
+            'document_hash': paystub.document_hash
+        }
+    }
+    
+    # Generate the PDF
+    try:
+        pdf_path = generate_snappt_compliant_paystub(
+            paystub_data=paystub_pdf_data,
+            template_id="eusotrip_original",
+            output_path=pdf_output_path
+        )
+        
+        # Update paystub with PDF info
+        paystub.pdf_url = f"/api/paystubs/{paystub.id}/download"
+        paystub.pdf_generated_at = datetime.utcnow()
+        if os.path.exists(pdf_path):
+            paystub.pdf_file_size_bytes = os.path.getsize(pdf_path)
+        
+    except Exception as e:
+        print(f"PDF generation error: {e}")
+        # Continue even if PDF generation fails
     
     # Update employee YTD cache
     update_employee_ytd_cache(employee.id)
