@@ -64,8 +64,8 @@ def generate_paystub():
         "employer_name": data.get("employer_name", "Acme Corp"),
         "gross_pay": f"{gross_income:.2f}",
         "federal_income_tax": f"{federal_income_tax:.2f}",
-        "social_security_tax": f"{federal_payroll_taxes["social_security"]:.2f}",
-        "medicare_tax": f"{federal_payroll_taxes["medicare"]:.2f}",
+        "social_security_tax": f"{federal_payroll_taxes['social_security']:.2f}",
+        "medicare_tax": f"{federal_payroll_taxes['medicare']:.2f}",
         "state_income_tax": f"{state_income_tax:.2f}",
         "total_deductions": f"{total_deductions:.2f}",
         "net_pay": f"{net_pay:.2f}",
@@ -149,7 +149,7 @@ def calculate_taxes():
         "federal_income_tax": f"{federal_income_tax:.2f}",
         "federal_payroll_taxes": federal_payroll_taxes,
         "state_income_tax": f"{state_income_tax:.2f}",
-        "total_deductions": f"{federal_income_tax + federal_payroll_taxes["total_payroll_tax"] + state_income_tax:.2f}",
-        "net_pay": f"{gross_income - (federal_income_tax + federal_payroll_taxes["total_payroll_tax"] + state_income_tax):.2f}"
+        "total_deductions": f"{federal_income_tax + federal_payroll_taxes['total_payroll_tax'] + state_income_tax:.2f}",
+        "net_pay": f"{gross_income - (federal_income_tax + federal_payroll_taxes['total_payroll_tax'] + state_income_tax):.2f}"
     }), 200
 

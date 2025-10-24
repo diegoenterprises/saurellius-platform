@@ -1,0 +1,62 @@
+import os
+import sys
+# DON'T CHANGE THIS !!!
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+
+from flask import Flask, send_from_directory, jsonify
+from datetime import datetime
+from src.models.database import db
+from src.routes.user import user_bp
+from src.routes.paystub import paystub_bp
+from src.routes.auth import auth_bp
+from src.routes.subscription import subscription_bp
+from src.routes.paystub_advanced import paystub_advanced_bp
+from src.routes.dashboard import dashboard_bp
+
+app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'src', 'static'))
+app.config['SECRET_KEY'] = 'asdf#FGSgvasgf$5$WGT'
+
+# Register blueprints
+app.register_blueprint(user_bp, url_prefix='/api')
+app.register_blueprint(paystub_bp, url_prefix='/api')
+app.register_blueprint(auth_bp, url_prefix='/api/auth')
+app.register_blueprint(subscription_bp, url_prefix='/api/subscription')
+app.register_blueprint(paystub_advanced_bp, url_prefix='/api/paystubs')
+app.register_blueprint(dashboard_bp, url_prefix='/api/dashboard')
+
+# uncomment if you need to use database
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("SQLALCHEMY_DATABASE_URI", "postgresql://saurelliusadmin:ManusPassword123!@saurellius-db.cabe8skwsu5v.us-east-1.rds.amazonaws.com:5432/saurellius_db")
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# db.init_app(app)
+# with app.app_context():
+#     db.create_all() # Commented out to prevent startup failure due to DB connection
+
+# Health check endpoint for Elastic Beanstalk
+@app.route('/health', methods=['GET'])
+def health_check():
+    """Health check endpoint for Elastic Beanstalk"""
+    return jsonify({'status': 'healthy', 'timestamp': datetime.utcnow().isoformat()}), 200
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+    static_folder_path = app.static_folder
+    if static_folder_path is None:
+            return "Static folder not configured", 404
+
+    if path != "" and os.path.exists(os.path.join(static_folder_path, path)):
+        return send_from_directory(static_folder_path, path)
+    else:
+        index_path = os.path.join(static_folder_path, 'index.html')
+        if os.path.exists(index_path):
+            return send_from_directory(static_folder_path, 'index.html')
+        else:
+            return "index.html not found", 404
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
+
+# Elastic Beanstalk expects 'application'
+application = app
+
