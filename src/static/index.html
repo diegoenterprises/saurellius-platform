@@ -3,447 +3,323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saurellius - Professional Paystub Generator</title>
+    <title>Saurellius - Professional Paystubs Made Simple</title>
     <link rel="icon" type="image/png" href="/logo192.png">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .container {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            padding: 40px;
-            max-width: 600px;
-            width: 90%;
-            margin: 20px;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .header h1 {
-            color: #4a5568;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .header p {
-            color: #718096;
-            font-size: 1.1rem;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #4a5568;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .form-row {
-            display: flex;
-            gap: 20px;
-        }
-
-        .form-row .form-group {
-            flex: 1;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .result {
-            margin-top: 30px;
-            padding: 20px;
-            background: #f7fafc;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-            display: none;
-        }
-
-        .result.show {
-            display: block;
-        }
-
-        .result h3 {
-            color: #4a5568;
-            margin-bottom: 15px;
-        }
-
-        .result p {
-            margin-bottom: 10px;
-        }
-
-        .error {
-            background: #fed7d7;
-            border-left-color: #e53e3e;
-            color: #c53030;
-        }
-
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #ffffff;
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: spin 1s ease-in-out infinite;
-            margin-right: 10px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .tax-breakdown {
-            background: white;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 15px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .tax-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #f1f5f9;
-        }
-
-        .tax-item:last-child {
-            border-bottom: none;
-            font-weight: 600;
-            color: #2d3748;
-        }
-
-        @media (max-width: 768px) {
-            .form-row {
-                flex-direction: column;
-                gap: 0;
-            }
-            
-            .container {
-                padding: 20px;
-                margin: 10px;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    <link rel="apple-touch-icon" href="/logo512.png">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <img src="/logo.png" alt="Saurellius Logo" style="width: 120px; height: 120px; margin-bottom: 20px;">
-            <h1>Saurellius</h1>
-            <p>Professional Paystub Generator with Bank-Grade Security</p>
-        </div>
-
-        <form id="paystubForm">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="employeeName">Employee Name</label>
-                    <input type="text" id="employeeName" name="employee_name" required>
+    <!-- LANDING PAGE -->
+    <div id="landing-page" class="page active">
+        <!-- Header -->
+        <header class="landing-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <img src="/Saurellius_logo.webp" alt="Saurellius Logo" class="logo-img">
+                        <span class="logo-text">Saurellius</span>
+                    </div>
+                    <nav class="nav-buttons">
+                        <button class="btn-secondary" onclick="showPage('login')">Sign In</button>
+                        <button class="btn-primary" onclick="showPage('register')">Get Started</button>
+                    </nav>
                 </div>
-                <div class="form-group">
-                    <label for="employerName">Employer Name</label>
-                    <input type="text" id="employerName" name="employer_name" required>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">Professional Paystubs <span class="gradient-text">Made Simple</span></h1>
+                <p class="hero-subtitle">Generate bank-grade paystubs in minutes with 100% accurate tax calculations and enterprise-quality PDFs</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary btn-large" onclick="showPage('register')">Start Free Trial</button>
+                    <button class="btn-secondary btn-large" onclick="showPage('pricing')">View Pricing</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3 class="stat-number">15,000+</h3>
+                        <p class="stat-label">Happy Users</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 class="stat-number">125,000+</h3>
+                        <p class="stat-label">Paystubs Generated</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 class="stat-number">98%</h3>
+                        <p class="stat-label">Satisfaction Rate</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Why Choose Saurellius?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Bank-Grade Security</h3>
+                        <p>Snappt AI compliant with QR verification and document hashing for maximum authenticity</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>100% Accurate Taxes</h3>
+                        <p>2025/2026 federal, state, and local tax calculations for all 50 states and territories</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Lightning Fast</h3>
+                        <p>Generate professional paystubs in minutes, not hours. Perfect for apartment applications</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Smart YTD Tracking</h3>
+                        <p>Automatic year-to-date calculations that continue perfectly from your last paystub</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="landing-footer">
+            <div class="container">
+                <p>&copy; 2025 Saurellius. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- PRICING PAGE -->
+    <div id="pricing-page" class="page">
+        <div class="auth-container pricing-container">
+            <div class="pricing-header">
+                <img src="/Saurellius_logo.webp" alt="Saurellius" class="pricing-logo">
+                <h1>Choose Your Plan</h1>
+                <p class="pricing-subtitle">Select the perfect plan for your paystub generation needs</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Starter Plan -->
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>Starter</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">25</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="features-list">
+                        <li>✓ 5 paystubs per month</li>
+                        <li>✓ Basic templates</li>
+                        <li>✓ Email support</li>
+                        <li>✓ YTD tracking</li>
+                        <li>✓ PDF downloads</li>
+                    </ul>
+                    <button class="btn-outline" onclick="selectPlan('starter')">Choose Starter</button>
+                </div>
+
+                <!-- Professional Plan (Most Popular) -->
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="plan-header">
+                        <h3>Professional</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">50</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="features-list">
+                        <li>✓ 15 paystubs per month</li>
+                        <li>✓ Premium templates</li>
+                        <li>✓ Priority support</li>
+                        <li>✓ Advanced YTD calculations</li>
+                        <li>✓ Bulk downloads</li>
+                        <li>✓ Custom branding</li>
+                    </ul>
+                    <button class="btn-primary" onclick="selectPlan('professional')">Choose Professional</button>
+                </div>
+
+                <!-- Business Plan -->
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>Business</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">100</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="features-list">
+                        <li>✓ 50 paystubs per month</li>
+                        <li>✓ All premium templates</li>
+                        <li>✓ Phone support</li>
+                        <li>✓ API access</li>
+                        <li>✓ Multi-user accounts</li>
+                        <li>✓ White-label options</li>
+                    </ul>
+                    <button class="btn-outline" onclick="selectPlan('business')">Choose Business</button>
                 </div>
             </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="grossIncome">Gross Income ($)</label>
-                    <input type="number" id="grossIncome" name="gross_income" step="0.01" min="0" required>
-                </div>
-                <div class="form-group">
-                    <label for="filingStatus">Filing Status</label>
-                    <select id="filingStatus" name="filing_status" required>
-                        <option value="">Select Filing Status</option>
-                        <option value="single">Single</option>
-                        <option value="married_filing_jointly">Married Filing Jointly</option>
-                        <option value="married_filing_separately">Married Filing Separately</option>
-                        <option value="head_of_household">Head of Household</option>
-                    </select>
-                </div>
+            <div class="welcome-bonus">
+                <div class="bonus-icon">🎁</div>
+                <p><strong>Welcome Bonus:</strong> Get 500 bonus points when you register today!</p>
             </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="state">State/Territory</label>
-                    <select id="state" name="state" required>
-                        <option value="">Select State/Territory</option>
-                        <option value="Ala">Alabama</option>
-                        <option value="Alaska">Alaska</option>
-                        <option value="Ariz">Arizona</option>
-                        <option value="Ark">Arkansas</option>
-                        <option value="Calif">California</option>
-                        <option value="Colo">Colorado</option>
-                        <option value="Conn">Connecticut</option>
-                        <option value="Del">Delaware</option>
-                        <option value="Fla">Florida</option>
-                        <option value="Ga">Georgia</option>
-                        <option value="Hawaii">Hawaii</option>
-                        <option value="Idaho">Idaho</option>
-                        <option value="Ill">Illinois</option>
-                        <option value="Ind">Indiana</option>
-                        <option value="Iowa">Iowa</option>
-                        <option value="Kan">Kansas</option>
-                        <option value="Ky">Kentucky</option>
-                        <option value="La">Louisiana</option>
-                        <option value="Maine">Maine</option>
-                        <option value="Md">Maryland</option>
-                        <option value="Mass">Massachusetts</option>
-                        <option value="Mich">Michigan</option>
-                        <option value="Minn">Minnesota</option>
-                        <option value="Miss">Mississippi</option>
-                        <option value="Mo">Missouri</option>
-                        <option value="Mont">Montana</option>
-                        <option value="Neb">Nebraska</option>
-                        <option value="Nev">Nevada</option>
-                        <option value="NH">New Hampshire</option>
-                        <option value="NJ">New Jersey</option>
-                        <option value="NM">New Mexico</option>
-                        <option value="NY">New York</option>
-                        <option value="NC">North Carolina</option>
-                        <option value="ND">North Dakota</option>
-                        <option value="Ohio">Ohio</option>
-                        <option value="Okla">Oklahoma</option>
-                        <option value="Ore">Oregon</option>
-                        <option value="Pa">Pennsylvania</option>
-                        <option value="RI">Rhode Island</option>
-                        <option value="SC">South Carolina</option>
-                        <option value="SD">South Dakota</option>
-                        <option value="Tenn">Tennessee</option>
-                        <option value="Texas">Texas</option>
-                        <option value="Utah">Utah</option>
-                        <option value="Vt">Vermont</option>
-                        <option value="Va">Virginia</option>
-                        <option value="Wash">Washington</option>
-                        <option value="WV">West Virginia</option>
-                        <option value="Wis">Wisconsin</option>
-                        <option value="Wyo">Wyoming</option>
-                        <option value="DC">District of Columbia</option>
-                        <option value="american_samoa">American Samoa</option>
-                        <option value="puerto_rico">Puerto Rico</option>
-                        <option value="guam">Guam</option>
-                        <option value="usvi">U.S. Virgin Islands</option>
-                        <option value="cnmi">Northern Mariana Islands</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="dependents">Number of Dependents</label>
-                    <input type="number" id="dependents" name="dependents" min="0" value="0">
-                </div>
+            <div class="pricing-footer">
+                <button class="btn-text" onclick="showPage('landing')">← Previous</button>
+                <button class="btn-primary" onclick="showPage('register')">Create Account</button>
             </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="payPeriodStart">Pay Period Start</label>
-                    <input type="date" id="payPeriodStart" name="pay_period_start" required>
-                </div>
-                <div class="form-group">
-                    <label for="payPeriodEnd">Pay Period End</label>
-                    <input type="date" id="payPeriodEnd" name="pay_period_end" required>
-                </div>
+            <div class="auth-link">
+                Already have an account? <a href="#" onclick="showPage('login')">Sign in here</a>
             </div>
-
-            <div class="form-group">
-                <label for="payDate">Pay Date</label>
-                <input type="date" id="payDate" name="pay_date" required>
-            </div>
-
-            <button type="submit" class="btn" id="generateBtn">
-                Generate Professional Paystub
-            </button>
-        </form>
-
-        <div id="result" class="result">
-            <h3>Tax Calculation Results</h3>
-            <div id="resultContent"></div>
         </div>
     </div>
 
-    <script>
-        document.getElementById('paystubForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const btn = document.getElementById('generateBtn');
-            const result = document.getElementById('result');
-            const resultContent = document.getElementById('resultContent');
-            
-            // Show loading state
-            btn.innerHTML = '<span class="loading"></span>Generating Paystub...';
-            btn.disabled = true;
-            result.classList.remove('show', 'error');
-            
-            // Collect form data
-            const formData = new FormData(this);
-            const data = {
-                user_id: 'user_' + Date.now(), // Generate a temporary user ID
-                employee_name: formData.get('employee_name'),
-                employer_name: formData.get('employer_name'),
-                gross_income: parseFloat(formData.get('gross_income')),
-                filing_status: formData.get('filing_status'),
-                state: formData.get('state'),
-                dependents: parseInt(formData.get('dependents')) || 0,
-                pay_period_start: formData.get('pay_period_start'),
-                pay_period_end: formData.get('pay_period_end'),
-                pay_date: formData.get('pay_date')
-            };
-            
-            try {
-                const response = await fetch('/api/generate-paystub', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-                
-                const responseData = await response.json();
-                
-                if (response.ok) {
-                    // Success
-                    const taxes = responseData.taxes_calculated;
-                    resultContent.innerHTML = `
-                        <p><strong>Paystub generated successfully!</strong></p>
-                        <p><strong>PDF URL:</strong> <a href="${responseData.pdf_url}" target="_blank">Download Paystub</a></p>
-                        
-                        <div class="tax-breakdown">
-                            <h4>Tax Breakdown:</h4>
-                            <div class="tax-item">
-                                <span>Gross Income:</span>
-                                <span>$${data.gross_income.toFixed(2)}</span>
+    <!-- LOGIN PAGE -->
+    <div id="login-page" class="page">
+        <div class="auth-container">
+            <div class="auth-logo">
+                <img src="/Saurellius_logo.webp" alt="Saurellius">
+            </div>
+            <h1>Welcome Back</h1>
+            <p class="auth-subtitle">Sign in to your Saurellius account</p>
+
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="login-email" placeholder="your@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="login-password" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn-primary btn-full">Sign In</button>
+            </form>
+
+            <div class="auth-link">
+                Don't have an account? <a href="#" onclick="showPage('register')">Sign up</a>
+            </div>
+            <div class="auth-link">
+                <a href="#" onclick="showPage('landing')">← Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- REGISTER PAGE -->
+    <div id="register-page" class="page">
+        <div class="auth-container">
+            <div class="auth-logo">
+                <img src="/Saurellius_logo.webp" alt="Saurellius">
+            </div>
+            <h1>Create Your Account</h1>
+            <p class="auth-subtitle">Start generating professional paystubs today</p>
+
+            <form id="register-form" onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="register-name" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="register-email" placeholder="your@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone (Optional)</label>
+                    <input type="tel" id="register-phone" placeholder="(555) 123-4567">
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="register-password" placeholder="••••••••" required>
+                </div>
+
+                <div class="welcome-bonus-small">
+                    🎁 <strong>Bonus:</strong> Get 500 points on signup!
+                </div>
+
+                <button type="submit" class="btn-primary btn-full">Create Account</button>
+            </form>
+
+            <div class="auth-link">
+                Already have an account? <a href="#" onclick="showPage('login')">Sign in</a>
+            </div>
+            <div class="auth-link">
+                <a href="#" onclick="showPage('pricing')">← View Pricing</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- DASHBOARD PAGE -->
+    <div id="dashboard-page" class="page">
+        <header class="dashboard-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <img src="/Saurellius_logo.webp" alt="Saurellius Logo" class="logo-img">
+                        <span class="logo-text">Saurellius</span>
+                    </div>
+                    <nav class="nav-buttons">
+                        <button class="btn-secondary" onclick="logout()">Logout</button>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <div class="container">
+                <div class="welcome-section">
+                    <h1>Welcome Back! 👋</h1>
+                    <p>Manage your paystubs, track YTD earnings, and earn rewards</p>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Quick Actions</h3>
+                        <div class="action-buttons">
+                            <button class="btn-primary">🚀 Generate Paystub</button>
+                            <button class="btn-secondary">📄 View History</button>
+                            <button class="btn-secondary">🏆 Rewards Center</button>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>Your Stats</h3>
+                        <div class="stats-list">
+                            <div class="stat-item">
+                                <span class="stat-label">Paystubs Generated</span>
+                                <span class="stat-value">0</span>
                             </div>
-                            <div class="tax-item">
-                                <span>Federal Income Tax:</span>
-                                <span>$${taxes.federal_income_tax}</span>
+                            <div class="stat-item">
+                                <span class="stat-label">Reward Points</span>
+                                <span class="stat-value">500</span>
                             </div>
-                            <div class="tax-item">
-                                <span>Social Security:</span>
-                                <span>$${taxes.federal_payroll_taxes.social_security}</span>
-                            </div>
-                            <div class="tax-item">
-                                <span>Medicare:</span>
-                                <span>$${taxes.federal_payroll_taxes.medicare}</span>
-                            </div>
-                            ${taxes.federal_payroll_taxes.additional_medicare > 0 ? `
-                            <div class="tax-item">
-                                <span>Additional Medicare:</span>
-                                <span>$${taxes.federal_payroll_taxes.additional_medicare}</span>
-                            </div>` : ''}
-                            <div class="tax-item">
-                                <span>State Income Tax:</span>
-                                <span>$${taxes.state_income_tax}</span>
-                            </div>
-                            <div class="tax-item">
-                                <span><strong>Total Deductions:</strong></span>
-                                <span><strong>$${taxes.federal_payroll_taxes.total_payroll_tax}</strong></span>
-                            </div>
-                            <div class="tax-item">
-                                <span><strong>Net Pay:</strong></span>
-                                <span><strong>$${(data.gross_income - parseFloat(taxes.federal_payroll_taxes.total_payroll_tax)).toFixed(2)}</strong></span>
+                            <div class="stat-item">
+                                <span class="stat-label">Current Plan</span>
+                                <span class="stat-value">Free Trial</span>
                             </div>
                         </div>
-                    `;
-                    result.classList.add('show');
-                } else {
-                    // Error
-                    resultContent.innerHTML = `
-                        <p><strong>Error:</strong> ${responseData.error}</p>
-                        ${responseData.details ? `<p><strong>Details:</strong> ${responseData.details}</p>` : ''}
-                    `;
-                    result.classList.add('show', 'error');
-                }
-            } catch (error) {
-                resultContent.innerHTML = `
-                    <p><strong>Network Error:</strong> Unable to generate paystub. Please try again.</p>
-                    <p><strong>Details:</strong> ${error.message}</p>
-                `;
-                result.classList.add('show', 'error');
-            } finally {
-                // Reset button
-                btn.innerHTML = 'Generate Professional Paystub';
-                btn.disabled = false;
-            }
-        });
-        
-        // Set default dates
-        const today = new Date();
-        const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-        const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-        
-        document.getElementById('payPeriodStart').value = firstDayOfMonth.toISOString().split('T')[0];
-        document.getElementById('payPeriodEnd').value = lastDayOfMonth.toISOString().split('T')[0];
-        document.getElementById('payDate').value = today.toISOString().split('T')[0];
-    </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/app.js"></script>
 </body>
 </html>
+

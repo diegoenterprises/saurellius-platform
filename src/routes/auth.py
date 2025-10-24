@@ -8,6 +8,7 @@ import os
 from functools import wraps
 
 auth_bp = Blueprint('auth', __name__)
+
 SECRET_KEY = os.environ.get('SECRET_KEY', 'asdf#FGSgvasgf$5$WGT')
 
 # JWT decorator
@@ -21,45 +22,66 @@ def token_required(f):
             auth_header = request.headers['Authorization']
             if auth_header.startswith('Bearer '):
                 token = auth_header.split(' ')[1]
-
+        
         if not token:
             return jsonify({'message': 'Token is missing!'}), 401
-
+        
         try:
             data = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
             current_user = User.query.filter_by(id=data['id']).first()
         except:
             return jsonify({'message': 'Token is invalid!'}), 401
-
+        
         return f(current_user, *args, **kwargs)
-
+    
     return decorated
 
 @auth_bp.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
     
-    if not data or not data.get('username') or not data.get('email') or not data.get('password'):
-        return jsonify({'message': 'Missing username, email, or password'}), 400
-
-    if User.query.filter_by(username=data['username']).first():
-        return jsonify({'message': 'Username already exists'}), 409
+    # Accept both 'name' and 'username' for compatibility
+    name = data.get('name') or data.get('username')
+    email = data.get('email')
+    password = data.get('password')
+    phone = data.get('phone', '')
+    subscription_tier = data.get('subscription_tier', 'starter')
     
-    if User.query.filter_by(email=data['email']).first():
+    if not name or not email or not password:
+        return jsonify({'message': 'Missing name, email, or password'}), 400
+    
+    if User.query.filter_by(email=email).first():
         return jsonify({'message': 'Email already exists'}), 409
-
-    hashed_password = generate_password_hash(data['password'], method='pbkdf2:sha256')
+    
+    hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
+    
+    # Create new user with 500 bonus points
     new_user = User(
-        username=data['username'], 
-        email=data['email'], 
+        username=name,
+        email=email,
         password_hash=hashed_password,
+        phone=phone,
+        subscription_tier=subscription_tier,
+        reward_points=500,  # Welcome bonus
+        total_lifetime_points=500,
+        reward_tier='bronze',
         last_activity=datetime.datetime.utcnow()
     )
     
     db.session.add(new_user)
     db.session.commit()
     
-    return jsonify({'message': 'User registered successfully'}), 201
+    # Generate token for immediate login
+    token = jwt.encode({
+        'id': new_user.id,
+        'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)
+    }, SECRET_KEY, algorithm="HS256")
+    
+    return jsonify({
+        'message': 'User registered successfully',
+        'access_token': token,
+        'user': new_user.to_dict()
+    }), 201
 
 @auth_bp.route('/login', methods=['POST'])
 def login():
@@ -67,22 +89,25 @@ def login():
     
     if not auth or not auth.get('email') or not auth.get('password'):
         return jsonify({'message': 'Could not verify'}), 401
-
+    
     user = User.query.filter_by(email=auth['email']).first()
-
+    
     if not user or not check_password_hash(user.password_hash, auth['password']):
         return jsonify({'message': 'Could not verify'}), 401
-
+    
     # Update last activity
     user.last_activity = datetime.datetime.utcnow()
     db.session.commit()
-
+    
     token = jwt.encode({
         'id': user.id,
         'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)
     }, SECRET_KEY, algorithm="HS256")
-
-    return jsonify({'token': token, 'user': user.to_dict()}), 200
+    
+    return jsonify({
+        'access_token': token,
+        'user': user.to_dict()
+    }), 200
 
 @auth_bp.route('/profile', methods=['GET'])
 @token_required
@@ -96,13 +121,13 @@ def change_password(current_user):
     
     if not data or not data.get('old_password') or not data.get('new_password'):
         return jsonify({'message': 'Missing old and new passwords'}), 400
-
+    
     if not check_password_hash(current_user.password_hash, data['old_password']):
         return jsonify({'message': 'Incorrect old password'}), 401
-
+    
     current_user.password_hash = generate_password_hash(data['new_password'], method='pbkdf2:sha256')
     db.session.commit()
-
+    
     return jsonify({'message': 'Password updated successfully'}), 200
 
 @auth_bp.route('/logout', methods=['POST'])
@@ -112,3 +137,4 @@ def logout(current_user):
     # We can implement a server-side token blacklist if necessary, but for now,
     # we'll just return a success message.
     return jsonify({'message': 'Logged out successfully'}), 200
+

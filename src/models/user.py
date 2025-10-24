@@ -7,14 +7,18 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hash = db.Column(db.String(128))
+    phone = db.Column(db.String(20), nullable=True)
     
     # Subscription Tracking
     subscription_id = db.Column(db.Integer, db.ForeignKey('subscription.id'), nullable=True)
+    subscription_tier = db.Column(db.String(50), default='starter')
     is_active_subscriber = db.Column(db.Boolean, default=False)
     stripe_customer_id = db.Column(db.String(100), unique=True, nullable=True)
     
     # Rewards and Gamification Tracking
     reward_points = db.Column(db.Integer, default=0)
+    total_lifetime_points = db.Column(db.Integer, default=0)
+    reward_tier = db.Column(db.String(50), default='bronze')
     lifetime_paystubs_generated = db.Column(db.Integer, default=0)
     last_activity = db.Column(db.DateTime, default=datetime.utcnow)
 
@@ -31,8 +35,12 @@ class User(db.Model):
             'id': self.id,
             'username': self.username,
             'email': self.email,
+            'phone': self.phone,
+            'subscription_tier': self.subscription_tier,
             'is_active_subscriber': self.is_active_subscriber,
             'reward_points': self.reward_points,
+            'reward_tier': self.reward_tier,
+            'total_lifetime_points': self.total_lifetime_points,
             'lifetime_paystubs_generated': self.lifetime_paystubs_generated,
             'last_activity': self.last_activity.isoformat() if self.last_activity else None
         }
@@ -81,9 +89,9 @@ class RewardActivity(db.Model):
 def create_initial_subscriptions():
     if not Subscription.query.first():
         db.session.add_all([
-            Subscription(name="Lite", price=25.00, paystubs_per_month=5, stripe_plan_id="plan_lite_monthly"),
-            Subscription(name="Pro", price=50.00, paystubs_per_month=20, stripe_plan_id="plan_pro_monthly"),
-            Subscription(name="Enterprise", price=100.00, paystubs_per_month=9999, stripe_plan_id="plan_enterprise_monthly")
+            Subscription(name="Starter", price=25.00, paystubs_per_month=5, stripe_plan_id="plan_starter_monthly"),
+            Subscription(name="Professional", price=50.00, paystubs_per_month=15, stripe_plan_id="plan_professional_monthly"),
+            Subscription(name="Business", price=100.00, paystubs_per_month=50, stripe_plan_id="plan_business_monthly")
         ])
         db.session.commit()
 
