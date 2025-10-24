@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Contact Us - Saurellius{% endblock %}
+{% block content %}
+<div style="min-height: 100vh; padding-top: 60px; background: var(--color-background-dark);">
+    <div style="max-width: 900px; margin: 0 auto; padding: var(--spacing-xl);">
+        <h1>Contact Us</h1>
+        <p style="color: var(--color-text-secondary);">We'd love to hear from you. Get in touch with our team.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-xl); margin: var(--spacing-2xl) 0;">
+            <div style="background: var(--color-background-card); padding: var(--spacing-lg); border-radius: var(--radius-lg); border: 1px solid var(--color-border); text-align: center;">
+                <h3>📧 Email</h3>
+                <p><a href="mailto:support@saurellius.com" class="form-link">support@saurellius.com</a></p>
+            </div>
+            <div style="background: var(--color-background-card); padding: var(--spacing-lg); border-radius: var(--radius-lg); border: 1px solid var(--color-border); text-align: center;">
+                <h3>💬 Live Chat</h3>
+                <p>Available 24/7 on our website</p>
+            </div>
+            <div style="background: var(--color-background-card); padding: var(--spacing-lg); border-radius: var(--radius-lg); border: 1px solid var(--color-border); text-align: center;">
+                <h3>📞 Phone</h3>
+                <p><a href="tel:+1-800-SAURELL" class="form-link">1-800-SAURELL</a></p>
+            </div>
+        </div>
+        
+        <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
+            <h2 style="margin-top: 0;">Send us a Message</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="padding: 1rem;">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

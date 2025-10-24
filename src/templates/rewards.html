@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% block title %}Rewards Center - Saurellius Cloud Payroll Stub Manager by Dr. Paystub Corp{% endblock %}
+
+{% block content %}
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="/dashboard">📊 Dashboard</a></li>
+                <li><a href="/paystub-generator">🚀 Generate Paystub</a></li>
+                <li><a href="/paystub-history">📄 History</a></li>
+                <li><a href="/ytd-summary">📈 YTD Summary</a></li>
+                <li><a href="/rewards" class="active">🏆 Rewards</a></li>
+                <li><a href="/settings">⚙️ Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="dashboard-header">
+                <div class="dashboard-title">
+                    <h1>🏆 Rewards Center</h1>
+                    <p style="color: var(--color-text-secondary); margin: 0;">Earn points and unlock exclusive benefits</p>
+                </div>
+            </div>
+
+            <!-- Current Status -->
+            <div style="background: linear-gradient(135deg, rgba(190, 1, 255, 0.1) 0%, rgba(20, 115, 255, 0.1) 100%); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border); margin-bottom: var(--spacing-xl);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-xl);">
+                    <div>
+                        <p style="color: var(--color-text-secondary); margin: 0 0 var(--spacing-sm) 0;">Current Tier</p>
+                        <h2 style="margin: 0; background: linear-gradient(135deg, var(--color-primary-purple), var(--color-accent-pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🥇 Gold</h2>
+                    </div>
+                    <div>
+                        <p style="color: var(--color-text-secondary); margin: 0 0 var(--spacing-sm) 0;">Total Points</p>
+                        <h2 style="margin: 0; color: var(--color-primary-purple);">1,250 pts</h2>
+                    </div>
+                    <div>
+                        <p style="color: var(--color-text-secondary); margin: 0 0 var(--spacing-sm) 0;">Points to Platinum</p>
+                        <h2 style="margin: 0; color: var(--color-primary-purple);">250 pts</h2>
+                    </div>
+                    <div>
+                        <p style="color: var(--color-text-secondary); margin: 0 0 var(--spacing-sm) 0;">Member Since</p>
+                        <h2 style="margin: 0; color: var(--color-primary-purple);">Jan 2025</h2>
+                    </div>
+                </div>
+
+                <div style="margin-top: var(--spacing-xl);">
+                    <p style="color: var(--color-text-secondary); margin: 0 0 var(--spacing-md) 0;">Progress to Platinum Tier</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 83%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tier Information -->
+            <div style="margin-bottom: var(--spacing-xl);">
+                <h2>Tier Benefits</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-lg);">
+                    <!-- Bronze Tier -->
+                    <div style="background: var(--color-background-card); padding: var(--spacing-lg); border-radius: var(--radius-lg); border: 1px solid var(--color-border); border-left: 4px solid #CD7F32;">
+                        <h3 style="margin-top: 0; color: #CD7F32;">🥉 Bronze Tier</h3>
+                        <p style="color: var(--color-text-secondary); font-size: 0.9rem;">0 - 499 Points</p>
+                        <ul style="color: var(--color-text-secondary); font-size: 0.9rem; margin-left: var(--spacing-lg);">
+                            <li>Basic paystub generation</li>
+                            <li>Email support</li>
+                            <li>Monthly newsletter</li>
+                        </ul>
+                    </div>
+
+                    <!-- Silver Tier -->
+                    <div style="background: var(--color-background-card); padding: var(--spacing-lg); border-radius: var(--radius-lg); border: 1px solid var(--color-border); border-left: 4px solid #C0C0C0;">
+                        <h3 style="margin-top: 0; color: #C0C0C0;">🥈 Silver Tier</h3>
+                        <p style="color: var(--color-text-secondary); font-size: 0.9rem;">500 - 999 Points</p>
+                        <ul style="color: var(--color-text-secondary); font-size: 0.9rem; margin-left: var(--spacing-lg);">
+                            <li>All Bronze benefits</li>
+                            <li>10% discount on plans</li>
+                            <li>Priority email support</li>
+                            <li>Advanced templates</li>
+                        </ul>
+                    </div>
+
+                    <!-- Gold Tier -->
+                    <div style="background: var(--color-background-card); padding: var(--spacing-lg); border-radius: var(--radius-lg); border: 1px solid var(--color-border); border-left: 4px solid #FFD700;">
+                        <h3 style="margin-top: 0; color: #FFD700;">🥇 Gold Tier (You are here)</h3>
+                        <p style="color: var(--color-text-secondary); font-size: 0.9rem;">1,000 - 1,499 Points</p>
+                        <ul style="color: var(--color-text-secondary); font-size: 0.9rem; margin-left: var(--spacing-lg);">
+                            <li>All Silver benefits</li>
+                            <li>20% discount on plans</li>
+                            <li>24/7 priority support</li>
+                            <li>Custom paystub templates</li>
+                            <li>Bulk generation (50/month)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Platinum Tier -->
+                    <div style="background: var(--color-background-card); padding: var(--spacing-lg); border-radius: var(--radius-lg); border: 1px solid var(--color-border); border-left: 4px solid #E5E4E2;">
+                        <h3 style="margin-top: 0; color: #E5E4E2;">💎 Platinum Tier</h3>
+                        <p style="color: var(--color-text-secondary); font-size: 0.9rem;">1,500+ Points</p>
+                        <ul style="color: var(--color-text-secondary); font-size: 0.9rem; margin-left: var(--spacing-lg);">
+                            <li>All Gold benefits</li>
+                            <li>30% discount on plans</li>
+                            <li>Dedicated account manager</li>
+                            <li>API access</li>
+                            <li>Unlimited bulk generation</li>
+                            <li>White-label options</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to Earn Points -->
+            <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border); margin-bottom: var(--spacing-xl);">
+                <h2 style="margin-top: 0;">How to Earn Points</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg);">
+                    <div style="padding: var(--spacing-lg); background: rgba(190, 1, 255, 0.05); border-radius: var(--radius-md);">
+                        <h3 style="margin-top: 0; color: var(--color-primary-purple);">📄 Generate Paystub</h3>
+                        <p style="color: var(--color-text-secondary); margin: 0;">+50 points per paystub</p>
+                    </div>
+                    <div style="padding: var(--spacing-lg); background: rgba(190, 1, 255, 0.05); border-radius: var(--radius-md);">
+                        <h3 style="margin-top: 0; color: var(--color-primary-purple);">🎯 Weekly Login Streak</h3>
+                        <p style="color: var(--color-text-secondary); margin: 0;">+25 points per week (5 days)</p>
+                    </div>
+                    <div style="padding: var(--spacing-lg); background: rgba(190, 1, 255, 0.05); border-radius: var(--radius-md);">
+                        <h3 style="margin-top: 0; color: var(--color-primary-purple);">👥 Referral Bonus</h3>
+                        <p style="color: var(--color-text-secondary); margin: 0;">+100 points per referral</p>
+                    </div>
+                    <div style="padding: var(--spacing-lg); background: rgba(190, 1, 255, 0.05); border-radius: var(--radius-md);">
+                        <h3 style="margin-top: 0; color: var(--color-primary-purple);">⭐ Review & Rating</h3>
+                        <p style="color: var(--color-text-secondary); margin: 0;">+50 points per review</p>
+                    </div>
+                    <div style="padding: var(--spacing-lg); background: rgba(190, 1, 255, 0.05); border-radius: var(--radius-md);">
+                        <h3 style="margin-top: 0; color: var(--color-primary-purple);">🎁 Special Events</h3>
+                        <p style="color: var(--color-text-secondary); margin: 0;">Bonus points during promotions</p>
+                    </div>
+                    <div style="padding: var(--spacing-lg); background: rgba(190, 1, 255, 0.05); border-radius: var(--radius-md);">
+                        <h3 style="margin-top: 0; color: var(--color-primary-purple);">📧 Newsletter</h3>
+                        <p style="color: var(--color-text-secondary); margin: 0;">+10 points for subscription</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Redeem Rewards -->
+            <div>
+                <h2>Redeem Your Points</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-lg);">
+                    <div style="background: var(--color-background-card); padding: var(--spacing-lg); border-radius: var(--radius-lg); border: 1px solid var(--color-border); text-align: center;">
+                        <h3 style="margin-top: 0;">10% Discount</h3>
+                        <p style="color: var(--color-text-secondary);">100 points</p>
+                        <button class="btn btn-primary btn-sm">Redeem</button>
+                    </div>
+                    <div style="background: var(--color-background-card); padding: var(--spacing-lg); border-radius: var(--radius-lg); border: 1px solid var(--color-border); text-align: center;">
+                        <h3 style="margin-top: 0;">20% Discount</h3>
+                        <p style="color: var(--color-text-secondary);">200 points</p>
+                        <button class="btn btn-primary btn-sm">Redeem</button>
+                    </div>
+                    <div style="background: var(--color-background-card); padding: var(--spacing-lg); border-radius: var(--radius-lg); border: 1px solid var(--color-border); text-align: center;">
+                        <h3 style="margin-top: 0;">Free Month</h3>
+                        <p style="color: var(--color-text-secondary);">500 points</p>
+                        <button class="btn btn-primary btn-sm">Redeem</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+{% endblock %}
+

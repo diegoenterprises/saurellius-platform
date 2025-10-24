@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Generate Paystub - Saurellius{% endblock %}
+{% block content %}
+<div class="dashboard-wrapper">
+    <aside class="dashboard-sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="/dashboard">📊 Dashboard</a></li>
+            <li><a href="/paystub-generator" class="active">🚀 Generate Paystub</a></li>
+            <li><a href="/paystub-history">📄 History</a></li>
+            <li><a href="/ytd-summary">📈 YTD Summary</a></li>
+            <li><a href="/rewards">🏆 Rewards</a></li>
+            <li><a href="/settings">⚙️ Settings</a></li>
+        </ul>
+    </aside>
+    <main class="dashboard-main">
+        <div class="dashboard-header">
+            <h1>Generate Paystub</h1>
+            <p style="color: var(--color-text-secondary);">Create a new paystub with automatic YTD continuation</p>
+        </div>
+        <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
+            <form id="paystubForm">
+                <div class="form-group">
+                    <label for="employeeId">Select Employee</label>
+                    <select id="employeeId" name="employeeId" required>
+                        <option value="">Choose an employee...</option>
+                        {% for employee in employees %}
+                            <option value="{{ employee.id }}">{{ employee.first_name }} {{ employee.last_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">Generate</button>
+            </form>
+        </div>
+    </main>
+</div>
+{% endblock %}

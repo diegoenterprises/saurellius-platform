@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block title %}YTD Summary - Saurellius Cloud Payroll Stub Manager by Dr. Paystub Corp{% endblock %}
+
+{% block content %}
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="/dashboard">📊 Dashboard</a></li>
+                <li><a href="/paystub-generator">🚀 Generate Paystub</a></li>
+                <li><a href="/paystub-history">📄 History</a></li>
+                <li><a href="/ytd-summary" class="active">📈 YTD Summary</a></li>
+                <li><a href="/rewards">🏆 Rewards</a></li>
+                <li><a href="/settings">⚙️ Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="dashboard-header">
+                <div class="dashboard-title">
+                    <h1>Year-to-Date Summary</h1>
+                    <p style="color: var(--color-text-secondary); margin: 0;">2025-2026 earnings and tax overview</p>
+                </div>
+            </div>
+
+            <!-- YTD Overview Cards -->
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <div class="label">Total Gross</div>
+                    <div class="value">$60,000</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Total Net</div>
+                    <div class="value">$48,000</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Total Taxes</div>
+                    <div class="value">$12,000</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Paystubs</div>
+                    <div class="value">12</div>
+                </div>
+            </div>
+
+            <!-- Tax Breakdown -->
+            <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border); margin-bottom: var(--spacing-xl);">
+                <h2 style="margin-top: 0;">Tax Breakdown</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg);">
+                    <div style="padding: var(--spacing-lg); background: rgba(190, 1, 255, 0.05); border-radius: var(--radius-md); border-left: 4px solid var(--color-primary-purple);">
+                        <p style="color: var(--color-text-secondary); margin: 0 0 var(--spacing-sm) 0;">Federal Income Tax</p>
+                        <h3 style="margin: 0; color: var(--color-primary-purple);">$8,100</h3>
+                        <p style="color: var(--color-text-secondary); font-size: 0.85rem; margin: var(--spacing-sm) 0 0 0;">13.5% of gross</p>
+                    </div>
+                    <div style="padding: var(--spacing-lg); background: rgba(190, 1, 255, 0.05); border-radius: var(--radius-md); border-left: 4px solid var(--color-primary-purple);">
+                        <p style="color: var(--color-text-secondary); margin: 0 0 var(--spacing-sm) 0;">Social Security Tax</p>
+                        <h3 style="margin: 0; color: var(--color-primary-purple);">$3,720</h3>
+                        <p style="color: var(--color-text-secondary); font-size: 0.85rem; margin: var(--spacing-sm) 0 0 0;">6.2% of gross</p>
+                    </div>
+                    <div style="padding: var(--spacing-lg); background: rgba(190, 1, 255, 0.05); border-radius: var(--radius-md); border-left: 4px solid var(--color-primary-purple);">
+                        <p style="color: var(--color-text-secondary); margin: 0 0 var(--spacing-sm) 0;">Medicare Tax</p>
+                        <h3 style="margin: 0; color: var(--color-primary-purple);">$870</h3>
+                        <p style="color: var(--color-text-secondary); font-size: 0.85rem; margin: var(--spacing-sm) 0 0 0;">1.45% of gross</p>
+                    </div>
+                    <div style="padding: var(--spacing-lg); background: rgba(190, 1, 255, 0.05); border-radius: var(--radius-md); border-left: 4px solid var(--color-primary-purple);">
+                        <p style="color: var(--color-text-secondary); margin: 0 0 var(--spacing-sm) 0;">State Income Tax</p>
+                        <h3 style="margin: 0; color: var(--color-primary-purple);">$3,000</h3>
+                        <p style="color: var(--color-text-secondary); font-size: 0.85rem; margin: var(--spacing-sm) 0 0 0;">5% of gross (CA)</p>
+                    </div>
+                    <div style="padding: var(--spacing-lg); background: rgba(190, 1, 255, 0.05); border-radius: var(--radius-md); border-left: 4px solid var(--color-primary-purple);">
+                        <p style="color: var(--color-text-secondary); margin: 0 0 var(--spacing-sm) 0;">Health Insurance</p>
+                        <h3 style="margin: 0; color: var(--color-primary-purple);">$2,400</h3>
+                        <p style="color: var(--color-text-secondary); font-size: 0.85rem; margin: var(--spacing-sm) 0 0 0;">Pre-tax deduction</p>
+                    </div>
+                    <div style="padding: var(--spacing-lg); background: rgba(190, 1, 255, 0.05); border-radius: var(--radius-md); border-left: 4px solid var(--color-primary-purple);">
+                        <p style="color: var(--color-text-secondary); margin: 0 0 var(--spacing-sm) 0;">401(k) Contribution</p>
+                        <h3 style="margin: 0; color: var(--color-primary-purple);">$1,800</h3>
+                        <p style="color: var(--color-text-secondary); font-size: 0.85rem; margin: var(--spacing-sm) 0 0 0;">Pre-tax deduction</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly Breakdown -->
+            <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
+                <h2 style="margin-top: 0;">Monthly Breakdown</h2>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--color-border);">
+                                <th style="padding: var(--spacing-md); text-align: left; color: var(--color-text-secondary);">Month</th>
+                                <th style="padding: var(--spacing-md); text-align: right; color: var(--color-text-secondary);">Gross</th>
+                                <th style="padding: var(--spacing-md); text-align: right; color: var(--color-text-secondary);">Taxes</th>
+                                <th style="padding: var(--spacing-md); text-align: right; color: var(--color-text-secondary);">Deductions</th>
+                                <th style="padding: var(--spacing-md); text-align: right; color: var(--color-text-secondary);">Net</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--color-border);">
+                                <td style="padding: var(--spacing-md);">January</td>
+                                <td style="padding: var(--spacing-md); text-align: right;">$5,000</td>
+                                <td style="padding: var(--spacing-md); text-align: right;">$1,000</td>
+                                <td style="padding: var(--spacing-md); text-align: right;">$200</td>
+                                <td style="padding: var(--spacing-md); text-align: right;">$3,800</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--color-border);">
+                                <td style="padding: var(--spacing-md);">February</td>
+                                <td style="padding: var(--spacing-md); text-align: right;">$5,000</td>
+                                <td style="padding: var(--spacing-md); text-align: right;">$1,000</td>
+                                <td style="padding: var(--spacing-md); text-align: right;">$200</td>
+                                <td style="padding: var(--spacing-md); text-align: right;">$3,800</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--color-border);">
+                                <td style="padding: var(--spacing-md);">March</td>
+                                <td style="padding: var(--spacing-md); text-align: right;">$5,000</td>
+                                <td style="padding: var(--spacing-md); text-align: right;">$1,000</td>
+                                <td style="padding: var(--spacing-md); text-align: right;">$200</td>
+                                <td style="padding: var(--spacing-md); text-align: right;">$3,800</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Server Error - Saurellius{% endblock %}
+{% block content %}
+<div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 60px;">
+    <div style="text-align: center;">
+        <h1 style="font-size: 4rem; margin: 0;">500</h1>
+        <h2>Server Error</h2>
+        <p style="color: var(--color-text-secondary);">Something went wrong. Please try again later.</p>
+        <a href="/" class="btn btn-primary" style="margin-top: 1rem;">Back to Home</a>
+    </div>
+</div>
+{% endblock %}

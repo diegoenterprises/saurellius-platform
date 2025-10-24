@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+
+{% block title %}Settings - Saurellius Cloud Payroll Stub Manager by Dr. Paystub Corp{% endblock %}
+
+{% block content %}
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="/dashboard">📊 Dashboard</a></li>
+                <li><a href="/paystub-generator">🚀 Generate Paystub</a></li>
+                <li><a href="/paystub-history">📄 History</a></li>
+                <li><a href="/ytd-summary">📈 YTD Summary</a></li>
+                <li><a href="/rewards">🏆 Rewards</a></li>
+                <li><a href="/settings" class="active">⚙️ Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="dashboard-header">
+                <div class="dashboard-title">
+                    <h1>Settings</h1>
+                    <p style="color: var(--color-text-secondary); margin: 0;">Manage your account and preferences</p>
+                </div>
+            </div>
+
+            <!-- Settings Tabs -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: var(--spacing-xl);">
+                <button class="btn btn-primary" onclick="showTab('profile')">👤 Profile</button>
+                <button class="btn btn-secondary" onclick="showTab('subscription')">💳 Subscription</button>
+                <button class="btn btn-secondary" onclick="showTab('security')">🔒 Security</button>
+                <button class="btn btn-secondary" onclick="showTab('notifications')">🔔 Notifications</button>
+                <button class="btn btn-secondary" onclick="showTab('billing')">💰 Billing</button>
+            </div>
+
+            <!-- Profile Settings -->
+            <div id="profile-tab" class="settings-tab" style="display: block;">
+                <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border); margin-bottom: var(--spacing-xl);">
+                    <h2 style="margin-top: 0;">Profile Information</h2>
+                    <form id="profileForm">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" value="{{ current_user.first_name or '' }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" value="{{ current_user.last_name or '' }}" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" value="{{ current_user.email or '' }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" value="{{ current_user.phone or '' }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" value="{{ current_user.company or '' }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Subscription Settings -->
+            <div id="subscription-tab" class="settings-tab" style="display: none;">
+                <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border); margin-bottom: var(--spacing-xl);">
+                    <h2 style="margin-top: 0;">Subscription Plan</h2>
+                    <div style="display: grid; gap: var(--spacing-lg);">
+                        <div style="padding: var(--spacing-lg); background: rgba(190, 1, 255, 0.05); border-radius: var(--radius-md); border-left: 4px solid var(--color-primary-purple);">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <h3 style="margin: 0 0 var(--spacing-sm) 0;">Professional Plan</h3>
+                                    <p style="color: var(--color-text-secondary); margin: 0;">$29.99/month</p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <p style="color: var(--color-text-secondary); margin: 0;">Renews on</p>
+                                    <p style="font-weight: 600; margin: 0;">November 24, 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary" style="width: 100%; padding: 1rem;">Change Plan</button>
+                        <button class="btn btn-secondary" style="width: 100%; padding: 1rem;">Cancel Subscription</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Settings -->
+            <div id="security-tab" class="settings-tab" style="display: none;">
+                <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border); margin-bottom: var(--spacing-xl);">
+                    <h2 style="margin-top: 0;">Security</h2>
+                    
+                    <div style="margin-bottom: var(--spacing-xl);">
+                        <h3>Change Password</h3>
+                        <form id="passwordForm">
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" id="newPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input type="password" id="confirmPassword" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update Password</button>
+                        </form>
+                    </div>
+
+                    <hr style="border: none; border-top: 1px solid var(--color-border); margin: var(--spacing-xl) 0;">
+
+                    <div>
+                        <h3>Two-Factor Authentication</h3>
+                        <p style="color: var(--color-text-secondary);">Add an extra layer of security to your account.</p>
+                        <button class="btn btn-primary">Enable 2FA</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notification Settings -->
+            <div id="notifications-tab" class="settings-tab" style="display: none;">
+                <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
+                    <h2 style="margin-top: 0;">Notification Preferences</h2>
+                    <div style="display: grid; gap: var(--spacing-lg);">
+                        <label style="display: flex; align-items: center; gap: 1rem; cursor: pointer;">
+                            <input type="checkbox" checked style="width: 20px; height: 20px; cursor: pointer;">
+                            <div>
+                                <p style="margin: 0; font-weight: 600;">Email Notifications</p>
+                                <p style="margin: 0; color: var(--color-text-secondary); font-size: 0.9rem;">Receive updates about your account</p>
+                            </div>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 1rem; cursor: pointer;">
+                            <input type="checkbox" checked style="width: 20px; height: 20px; cursor: pointer;">
+                            <div>
+                                <p style="margin: 0; font-weight: 600;">Marketing Emails</p>
+                                <p style="margin: 0; color: var(--color-text-secondary); font-size: 0.9rem;">Receive promotional offers and updates</p>
+                            </div>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 1rem; cursor: pointer;">
+                            <input type="checkbox" style="width: 20px; height: 20px; cursor: pointer;">
+                            <div>
+                                <p style="margin: 0; font-weight: 600;">SMS Notifications</p>
+                                <p style="margin: 0; color: var(--color-text-secondary); font-size: 0.9rem;">Receive important alerts via SMS</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Billing Settings -->
+            <div id="billing-tab" class="settings-tab" style="display: none;">
+                <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
+                    <h2 style="margin-top: 0;">Billing Information</h2>
+                    <div style="margin-bottom: var(--spacing-xl);">
+                        <h3>Payment Method</h3>
+                        <div style="padding: var(--spacing-lg); background: rgba(190, 1, 255, 0.05); border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <p style="margin: 0; color: var(--color-text-secondary);">Visa ending in</p>
+                                <p style="margin: 0; font-weight: 600;">•••• •••• •••• 4242</p>
+                            </div>
+                            <button class="btn btn-secondary btn-sm">Update</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Billing History</h3>
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid var(--color-border);">
+                                    <th style="padding: var(--spacing-md); text-align: left;">Date</th>
+                                    <th style="padding: var(--spacing-md); text-align: left;">Description</th>
+                                    <th style="padding: var(--spacing-md); text-align: right;">Amount</th>
+                                    <th style="padding: var(--spacing-md); text-align: center;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--color-border);">
+                                    <td style="padding: var(--spacing-md);">Oct 24, 2025</td>
+                                    <td style="padding: var(--spacing-md);">Professional Plan</td>
+                                    <td style="padding: var(--spacing-md); text-align: right;">$29.99</td>
+                                    <td style="padding: var(--spacing-md); text-align: center;"><a href="#" class="form-link">Invoice</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.settings-tab').forEach(tab => tab.style.display = 'none');
+            // Show selected tab
+            document.getElementById(tabName + '-tab').style.display = 'block';
+            // Update button styles
+            document.querySelectorAll('.dashboard-main .btn').forEach(btn => btn.classList.remove('btn-primary'));
+            event.target.classList.add('btn-primary');
+        }
+
+        document.getElementById('profileForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = {
+                first_name: document.getElementById('firstName').value,
+                last_name: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                company: document.getElementById('company').value
+            };
+            try {
+                const response = await fetch('/api/users/profile', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (response.ok) {
+                    alert('Profile updated successfully');
+                } else {
+                    alert('Error updating profile');
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        });
+
+        document.getElementById('passwordForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            if (newPassword !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+            const data = {
+                current_password: document.getElementById('currentPassword').value,
+                new_password: newPassword
+            };
+            try {
+                const response = await fetch('/api/users/password', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (response.ok) {
+                    alert('Password updated successfully');
+                    e.target.reset();
+                } else {
+                    alert('Error updating password');
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        });
+    </script>
+{% endblock %}
+
