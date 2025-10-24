@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Saurellius Cloud Payroll Stub Manager by Dr. Paystub Corp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/png" href="/img/logo.png">
 </head>
@@ -38,12 +39,12 @@
         <!-- Sidebar -->
         <aside class="dashboard-sidebar">
             <ul class="sidebar-menu">
-                <li><a href="/dashboard" class="active">📊 Dashboard</a></li>
-                <li><a href="/paystub-generator">🚀 Generate Paystub</a></li>
-                <li><a href="/paystub-history">📄 History</a></li>
-                <li><a href="/ytd-summary">📈 YTD Summary</a></li>
-                <li><a href="/rewards">🏆 Rewards</a></li>
-                <li><a href="/settings">⚙️ Settings</a></li>
+                <li><a href="/dashboard" class="active"><i class="fas fa-chart-bar"></i> Dashboard</a></li>
+                <li><a href="/paystub-generator"><i class="fas fa-rocket"></i> Generate Paystub</a></li>
+                <li><a href="/paystub-history"><i class="fas fa-file-alt"></i> History</a></li>
+                <li><a href="/ytd-summary"><i class="fas fa-chart-line"></i> YTD Summary</a></li>
+                <li><a href="/rewards"><i class="fas fa-trophy"></i> Rewards</a></li>
+                <li><a href="/settings"><i class="fas fa-cog"></i> Settings</a></li>
             </ul>
         </aside>
 
@@ -84,10 +85,10 @@
             <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border); margin-bottom: var(--spacing-xl);">
                 <h3 style="margin-top: 0;">Quick Actions</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
-                    <a href="/paystub-generator" class="btn btn-primary">🚀 Generate Next</a>
-                    <a href="/paystub-history" class="btn btn-secondary">📄 View History</a>
-                    <a href="/ytd-summary" class="btn btn-secondary">📊 YTD Summary</a>
-                    <a href="/rewards" class="btn btn-secondary">🏆 Rewards</a>
+                    <a href="/paystub-generator" class="btn btn-primary"><i class="fas fa-rocket"></i> Generate Next</a>
+                    <a href="/paystub-history" class="btn btn-secondary"><i class="fas fa-file-alt"></i> View History</a>
+                    <a href="/ytd-summary" class="btn btn-secondary"><i class="fas fa-chart-bar"></i> YTD Summary</a>
+                    <a href="/rewards" class="btn btn-secondary"><i class="fas fa-trophy"></i> Rewards</a>
                 </div>
             </div>
 
@@ -166,7 +167,7 @@
             <div class="rewards-widget">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-lg);">
                     <div>
-                        <h3 style="margin: 0 0 var(--spacing-sm) 0;">🏆 Rewards Progress</h3>
+                        <h3 style="margin: 0 0 var(--spacing-sm) 0;"><i class="fas fa-trophy"></i> Rewards Progress</h3>
                         <div class="tier-badge">🥇 Gold Tier</div>
                     </div>
                     <a href="/rewards" class="btn btn-primary btn-sm">View All</a>
@@ -197,11 +198,11 @@
             <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border); margin-top: var(--spacing-xl);">
                 <h3>Recent Activity</h3>
                 <ul class="recent-activity" style="margin-top: var(--spacing-lg);">
-                    <li>📄 Paystub #12 generated (2 days ago)</li>
+                    <li><i class="fas fa-file-alt"></i> Paystub #12 generated (2 days ago)</li>
                     <li>📥 Paystub #11 downloaded for apartment application</li>
-                    <li>⚙️ Profile updated</li>
+                    <li><i class="fas fa-cog"></i> Profile updated</li>
                     <li>🎯 Upgraded to Professional Plan</li>
-                    <li>🏆 Reached Gold Tier rewards status</li>
+                    <li><i class="fas fa-trophy"></i> Reached Gold Tier rewards status</li>
                 </ul>
             </div>
         </main>
