@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Saurellius Cloud Payroll Stub Manager by Dr. Paystub Corp</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/img/logo.png">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo-container">
+                    <img src="/img/logo.webp" alt="Saurellius Logo">
+                    <span class="logo-text">Saurellius</span>
+                    <span style="font-size: 0.75rem; color: var(--color-text-secondary); margin-left: 0.5rem;">by Dr. Paystub Corp</span>
+                </div>
+                <div class="nav-links">
+                    <a href="/dashboard">Dashboard</a>
+                    <a href="/paystub-generator">Generate</a>
+                    <a href="/rewards">Rewards</a>
+                </div>
+                <div class="nav-buttons">
+                    <div class="user-menu">
+                        <span id="userName" style="color: var(--color-text-secondary);">User</span>
+                        <div class="user-avatar" id="userAvatar">U</div>
+                        <button class="btn btn-ghost btn-sm" onclick="logout()">Sign Out</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="/dashboard" class="active">📊 Dashboard</a></li>
+                <li><a href="/paystub-generator">🚀 Generate Paystub</a></li>
+                <li><a href="/paystub-history">📄 History</a></li>
+                <li><a href="/ytd-summary">📈 YTD Summary</a></li>
+                <li><a href="/rewards">🏆 Rewards</a></li>
+                <li><a href="/settings">⚙️ Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <div class="dashboard-title">
+                    <h1>Welcome Back, <span id="userFirstName">User</span>!</h1>
+                    <p style="color: var(--color-text-secondary); margin: 0;">Here's your 2025 overview</p>
+                </div>
+                <div class="user-menu">
+                    <span id="subscriptionPlan" style="padding: 0.5rem 1rem; background: rgba(190, 1, 255, 0.1); border-radius: var(--radius-md); color: var(--color-primary-purple); font-weight: 600;">Professional Plan</span>
+                </div>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <div class="label">Total Paystubs</div>
+                    <div class="value" id="totalPaystubs">0</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">YTD Gross</div>
+                    <div class="value" id="ytdGross">$0</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">YTD Net</div>
+                    <div class="value" id="ytdNet">$0</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Average Net</div>
+                    <div class="value" id="avgNet">$0</div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border); margin-bottom: var(--spacing-xl);">
+                <h3 style="margin-top: 0;">Quick Actions</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                    <a href="/paystub-generator" class="btn btn-primary">🚀 Generate Next</a>
+                    <a href="/paystub-history" class="btn btn-secondary">📄 View History</a>
+                    <a href="/ytd-summary" class="btn btn-secondary">📊 YTD Summary</a>
+                    <a href="/rewards" class="btn btn-secondary">🏆 Rewards</a>
+                </div>
+            </div>
+
+            <!-- Employees Section -->
+            <div style="margin-bottom: var(--spacing-xl);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-lg);">
+                    <h2>Your Employees</h2>
+                    <a href="/add-employee" class="btn btn-primary btn-sm">+ Add Employee</a>
+                </div>
+
+                <div id="employeesList">
+                    <!-- Employees will be loaded here -->
+                    <div class="employee-card">
+                        <div class="employee-header">
+                            <div class="employee-name">
+                                <h3>John Doe</h3>
+                                <div class="employee-meta">Self-Employed • ID: EMP001</div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 0.85rem; color: var(--color-text-secondary);">Last Paystub</div>
+                                <div style="font-weight: 600;">01/15/2025</div>
+                            </div>
+                        </div>
+
+                        <div class="employee-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Last Gross</div>
+                                <div class="detail-value">$5,000</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Last Net</div>
+                                <div class="detail-value">$4,200</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">YTD Gross</div>
+                                <div class="detail-value">$60,000</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">YTD Net</div>
+                                <div class="detail-value">$48,000</div>
+                            </div>
+                        </div>
+
+                        <div style="padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); margin-top: var(--spacing-lg);">
+                            <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">Tax Summary This Year</p>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; font-size: 0.9rem;">
+                                <div>
+                                    <div style="color: var(--color-text-secondary);">Federal</div>
+                                    <div style="font-weight: 600;">$8,100</div>
+                                </div>
+                                <div>
+                                    <div style="color: var(--color-text-secondary);">Social Security</div>
+                                    <div style="font-weight: 600;">$3,720</div>
+                                </div>
+                                <div>
+                                    <div style="color: var(--color-text-secondary);">Medicare</div>
+                                    <div style="font-weight: 600;">$870</div>
+                                </div>
+                                <div>
+                                    <div style="color: var(--color-text-secondary);">State (CA)</div>
+                                    <div style="font-weight: 600;">$3,000</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quick-actions" style="margin-top: var(--spacing-lg);">
+                            <a href="/paystub-generator?employee=1" class="btn btn-primary btn-sm">Generate</a>
+                            <a href="/paystub-history?employee=1" class="btn btn-secondary btn-sm">History</a>
+                            <a href="/edit-employee?id=1" class="btn btn-secondary btn-sm">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rewards Widget -->
+            <div class="rewards-widget">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-lg);">
+                    <div>
+                        <h3 style="margin: 0 0 var(--spacing-sm) 0;">🏆 Rewards Progress</h3>
+                        <div class="tier-badge">🥇 Gold Tier</div>
+                    </div>
+                    <a href="/rewards" class="btn btn-primary btn-sm">View All</a>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>1,250 Points</span>
+                        <span>250 to Platinum</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 83%;"></div>
+                    </div>
+                </div>
+
+                <div style="margin-top: var(--spacing-lg);">
+                    <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">Recent Activity</p>
+                    <ul class="recent-activity">
+                        <li><span class="activity-points">+50 pts</span> - Generated paystub #12</li>
+                        <li><span class="activity-points">+25 pts</span> - Weekly login streak (5 days)</li>
+                        <li><span class="activity-points">+10 pts</span> - Profile updated</li>
+                        <li><span class="activity-points">+100 pts</span> - Referral bonus</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border); margin-top: var(--spacing-xl);">
+                <h3>Recent Activity</h3>
+                <ul class="recent-activity" style="margin-top: var(--spacing-lg);">
+                    <li>📄 Paystub #12 generated (2 days ago)</li>
+                    <li>📥 Paystub #11 downloaded for apartment application</li>
+                    <li>⚙️ Profile updated</li>
+                    <li>🎯 Upgraded to Professional Plan</li>
+                    <li>🏆 Reached Gold Tier rewards status</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Load dashboard data
+        async function loadDashboard() {
+            try {
+                const response = await fetch('/api/dashboard/summary');
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('totalPaystubs').textContent = data.total_paystubs || '0';
+                    document.getElementById('ytdGross').textContent = '$' + (data.ytd_gross || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                    document.getElementById('ytdNet').textContent = '$' + (data.ytd_net || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                    document.getElementById('avgNet').textContent = '$' + (data.average_net || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                    document.getElementById('userFirstName').textContent = data.first_name || 'User';
+                    document.getElementById('userName').textContent = data.full_name || 'User';
+                    document.getElementById('subscriptionPlan').textContent = (data.subscription_tier || 'Free').charAt(0).toUpperCase() + (data.subscription_tier || 'Free').slice(1) + ' Plan';
+                }
+            } catch (error) {
+                console.error('Error loading dashboard:', error);
+            }
+        }
+
+        function logout() {
+            fetch('/api/auth/logout', { method: 'POST' })
+                .then(() => window.location.href = '/login')
+                .catch(err => console.error('Logout error:', err));
+        }
+
+        // Load on page load
+        loadDashboard();
+
+        // Refresh every 30 seconds
+        setInterval(loadDashboard, 30000);
+    </script>
+</body>
+</html>
+

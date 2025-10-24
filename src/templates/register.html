@@ -1,0 +1,309 @@
+{% extends "base.html" %}
+
+{% block title %}Create Account - Saurellius Cloud Payroll Stub Manager by Dr. Paystub Corp{% endblock %}
+
+{% block extra_css %}
+    <style>
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .step-indicator::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--color-border);
+            z-index: 0;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--color-background-secondary);
+            border: 2px solid var(--color-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+            font-weight: 700;
+            transition: all var(--transition-fast);
+        }
+
+        .step.active .step-number {
+            background: linear-gradient(135deg, var(--color-primary-purple), var(--color-accent-pink));
+            border-color: var(--color-primary-purple);
+            color: var(--color-text-primary);
+        }
+
+        .step.completed .step-number {
+            background: var(--color-success);
+            border-color: var(--color-success);
+            color: var(--color-text-primary);
+        }
+
+        .step-label {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            transition: color var(--transition-fast);
+        }
+
+        .step.active .step-label {
+            color: var(--color-text-primary);
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: space-between;
+        }
+
+        .form-buttons .btn {
+            flex: 1;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <!-- Main Content -->
+    <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 60px;">
+        <div class="container container-sm">
+            <div class="form-container">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <img src="{{ url_for('static', filename='img/logo.webp') }}" alt="Saurellius" style="height: 50px; margin-bottom: 1rem;">
+                    <h2>Create Your Account</h2>
+                    <p>Join thousands generating professional paystubs</p>
+                </div>
+
+                <!-- Step Indicator -->
+                <div class="step-indicator">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Account</div>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Profile</div>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Plan</div>
+                    </div>
+                </div>
+
+                <form id="registerForm">
+                    <!-- Step 1: Account Information -->
+                    <div class="form-step active" data-step="1">
+                        <h3 style="margin-bottom: 1.5rem;">Account Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="••••••••" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" required>
+                        </div>
+
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; margin-bottom: 1.5rem;">
+                            <input type="checkbox" name="terms" required style="width: 18px; height: 18px; cursor: pointer;">
+                            <span style="font-size: 0.9rem;">I agree to the <a href="/terms" class="form-link">Terms of Service</a> and <a href="/privacy" class="form-link">Privacy Policy</a></span>
+                        </label>
+                    </div>
+
+                    <!-- Step 2: Profile Information -->
+                    <div class="form-step" data-step="2">
+                        <h3 style="margin-bottom: 1.5rem;">Profile Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company" placeholder="Your Company">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userType">I am a:</label>
+                            <select id="userType" name="userType" required>
+                                <option value="">Select...</option>
+                                <option value="individual">Individual</option>
+                                <option value="freelancer">Freelancer/Contractor</option>
+                                <option value="business">Small Business Owner</option>
+                                <option value="hr">HR Professional</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Plan Selection -->
+                    <div class="form-step" data-step="3">
+                        <h3 style="margin-bottom: 1.5rem;">Choose Your Plan</h3>
+                        
+                        <div style="display: grid; gap: 1rem;">
+                            <label style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; transition: all var(--transition-fast);" class="plan-option" data-plan="starter">
+                                <input type="radio" name="plan" value="starter" required style="width: 20px; height: 20px; cursor: pointer;">
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600;">Starter - $9.99/month</div>
+                                    <div style="font-size: 0.85rem; color: var(--color-text-secondary);">5 paystubs/month, 1 employee</div>
+                                </div>
+                            </label>
+
+                            <label style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; transition: all var(--transition-fast);" class="plan-option" data-plan="professional">
+                                <input type="radio" name="plan" value="professional" required style="width: 20px; height: 20px; cursor: pointer;">
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600;">Professional - $29.99/month</div>
+                                    <div style="font-size: 0.85rem; color: var(--color-text-secondary);">20 paystubs/month, 5 employees</div>
+                                </div>
+                            </label>
+
+                            <label style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border: 2px solid var(--color-border); border-radius: var(--radius-md); cursor: pointer; transition: all var(--transition-fast);" class="plan-option" data-plan="business">
+                                <input type="radio" name="plan" value="business" required style="width: 20px; height: 20px; cursor: pointer;">
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600;">Business - $79.99/month</div>
+                                    <div style="font-size: 0.85rem; color: var(--color-text-secondary);">Unlimited paystubs, 50 employees</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(190, 1, 255, 0.05); border-radius: var(--radius-md); border: 1px solid rgba(190, 1, 255, 0.2);">
+                            <p style="font-size: 0.9rem; margin: 0;">✨ All plans include a <strong>7-day free trial</strong>. No credit card required.</p>
+                        </div>
+                    </div>
+
+                    <!-- Form Buttons -->
+                    <div class="form-buttons">
+                        <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">Back</button>
+                        <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+                    </div>
+                </form>
+
+                <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+                    <p style="color: var(--color-text-secondary); margin-bottom: 1rem;">Already have an account?</p>
+                    <a href="/login" class="btn btn-secondary" style="width: 100%; padding: 1rem;">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const form = document.getElementById('registerForm');
+
+        function showStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.step').forEach(el => {
+                el.classList.remove('active', 'completed');
+                if (parseInt(el.dataset.step) < step) el.classList.add('completed');
+                if (parseInt(el.dataset.step) === step) el.classList.add('active');
+            });
+
+            // Show current step
+            document.querySelector(`.form-step[data-step="${step}"]`).classList.add('active');
+
+            // Update buttons
+            prevBtn.style.display = step === 1 ? 'none' : 'block';
+            nextBtn.textContent = step === totalSteps ? 'Create Account' : 'Next';
+        }
+
+        nextBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+
+            if (currentStep < totalSteps) {
+                currentStep++;
+                showStep(currentStep);
+            } else {
+                // Submit form
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+
+                if (data.password !== data.confirmPassword) {
+                    alert('Passwords do not match');
+                    return;
+                }
+
+                try {
+                    const response = await fetch('/api/auth/register', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (response.ok) {
+                        window.location.href = '/dashboard';
+                    } else {
+                        const error = await response.json();
+                        alert('Registration failed: ' + (error.message || 'Unknown error'));
+                    }
+                } catch (error) {
+                    alert('Error: ' + error.message);
+                }
+            }
+        });
+
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        });
+
+        // Plan option styling
+        document.querySelectorAll('.plan-option').forEach(option => {
+            option.addEventListener('change', function() {
+                document.querySelectorAll('.plan-option').forEach(o => {
+                    o.style.borderColor = 'var(--color-border)';
+                    o.style.background = 'transparent';
+                });
+                if (this.querySelector('input').checked) {
+                    this.style.borderColor = 'var(--color-primary-purple)';
+                    this.style.background = 'rgba(190, 1, 255, 0.05)';
+                }
+            });
+        });
+
+        showStep(1);
+    </script>
+{% endblock %}
+

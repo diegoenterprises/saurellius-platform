@@ -1,0 +1,21 @@
+{
+    "EnvironmentName": "SaurelliusEnvNew",
+    "EnvironmentId": "e-67atvzvzdn",
+    "ApplicationName": "SaurelliusPlatform",
+    "VersionLabel": "dr-paystub-final-v11-fixed-db",
+    "SolutionStackName": "64bit Amazon Linux 2023 v4.7.3 running Python 3.11",
+    "PlatformArn": "arn:aws:elasticbeanstalk:us-east-1::platform/Python 3.11 running on 64bit Amazon Linux 2023/4.7.3",
+    "EndpointURL": "3.211.164.110",
+    "CNAME": "SaurelliusEnvNew.eba-jewpcx7q.us-east-1.elasticbeanstalk.com",
+    "DateCreated": "2025-10-23T11:59:01.849000+00:00",
+    "DateUpdated": "2025-10-24T09:39:23.956000+00:00",
+    "Status": "Updating",
+    "AbortableOperationInProgress": true,
+    "Health": "Grey",
+    "Tier": {
+        "Name": "WebServer",
+        "Type": "Standard",
+        "Version": "1.0"
+    },
+    "EnvironmentArn": "arn:aws:elasticbeanstalk:us-east-1:634072176353:environment/SaurelliusPlatform/SaurelliusEnvNew"
+}

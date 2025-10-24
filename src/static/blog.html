@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Saurellius Cloud Payroll Stub Manager by Dr. Paystub Corp</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/img/logo.png">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo-container">
+                    <img src="/img/logo.webp" alt="Saurellius Logo">
+                    <span class="logo-text">Saurellius</span>
+                    <span style="font-size: 0.75rem; color: var(--color-text-secondary); margin-left: 0.5rem;">by Dr. Paystub Corp</span>
+                </div>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/#pricing">Pricing</a>
+                </div>
+                <div class="nav-buttons">
+                    <a href="/login" class="btn btn-secondary btn-sm">Sign In</a>
+                    <a href="/register" class="btn btn-primary btn-sm">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div style="min-height: 100vh; padding-top: 60px; background: var(--color-background-dark);">
+        <div style="max-width: 900px; margin: 0 auto; padding: var(--spacing-xl);">
+            <h1>Blog</h1>
+            <p style="color: var(--color-text-secondary); font-size: 1.1rem;">Insights, tips, and updates about paystub generation, payroll management, and financial best practices.</p>
+
+            <div style="display: grid; gap: var(--spacing-xl); margin-top: var(--spacing-2xl);">
+                <article style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
+                    <h2 style="margin-top: 0;">Coming Soon: New Blog Posts</h2>
+                    <p style="color: var(--color-text-secondary);">We're working on bringing you valuable content about paystub generation, tax compliance, and payroll best practices. Check back soon for our first articles!</p>
+                    <div style="display: flex; gap: 1rem; margin-top: var(--spacing-lg);">
+                        <span style="background: rgba(190, 1, 255, 0.1); color: var(--color-primary-purple); padding: 0.5rem 1rem; border-radius: var(--radius-md); font-size: 0.9rem;">Coming Soon</span>
+                    </div>
+                </article>
+
+                <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border); text-align: center;">
+                    <h3 style="color: var(--color-text-secondary);">Subscribe for Updates</h3>
+                    <p style="color: var(--color-text-secondary);">Get notified when we publish new blog posts and updates.</p>
+                    <form style="display: flex; gap: 0.5rem; margin-top: var(--spacing-lg);">
+                        <input type="email" placeholder="your@email.com" style="flex: 1; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-background-dark); color: var(--color-text-primary);">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Saurellius Cloud Payroll Stub Manager by Dr. Paystub Corp. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Saurellius Cloud Payroll Stub Manager by Dr. Paystub Corp{% endblock %}
+
+{% block content %}
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="/dashboard" class="active">📊 Dashboard</a></li>
+                <li><a href="/paystub-generator">🚀 Generate Paystub</a></li>
+                <li><a href="/paystub-history">📄 History</a></li>
+                <li><a href="/ytd-summary">📈 YTD Summary</a></li>
+                <li><a href="/rewards">🏆 Rewards</a></li>
+                <li><a href="/settings">⚙️ Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <div class="dashboard-title">
+                    <h1>Welcome Back, <span id="userFirstName">{{ current_user.first_name or 'User' }}</span>!</h1>
+                    <p style="color: var(--color-text-secondary); margin: 0;">Here's your 2025-2026 overview</p>
+                </div>
+                <div class="user-menu">
+                    <span id="subscriptionPlan" style="padding: 0.5rem 1rem; background: rgba(190, 1, 255, 0.1); border-radius: var(--radius-md); color: var(--color-primary-purple); font-weight: 600;">{{ current_user.subscription_tier or 'Free' }} Plan</span>
+                </div>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <div class="label">Total Paystubs</div>
+                    <div class="value" id="totalPaystubs">{{ user_stats.total_paystubs or 0 }}</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">YTD Gross</div>
+                    <div class="value" id="ytdGross">${{ "{:,.2f}".format(user_stats.ytd_gross or 0) }}</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">YTD Net</div>
+                    <div class="value" id="ytdNet">${{ "{:,.2f}".format(user_stats.ytd_net or 0) }}</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Average Net</div>
+                    <div class="value" id="avgNet">${{ "{:,.2f}".format(user_stats.average_net or 0) }}</div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border); margin-bottom: var(--spacing-xl);">
+                <h3 style="margin-top: 0;">Quick Actions</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                    <a href="/paystub-generator" class="btn btn-primary">🚀 Generate Next</a>
+                    <a href="/paystub-history" class="btn btn-secondary">📄 View History</a>
+                    <a href="/ytd-summary" class="btn btn-secondary">📊 YTD Summary</a>
+                    <a href="/rewards" class="btn btn-secondary">🏆 Rewards</a>
+                </div>
+            </div>
+
+            <!-- Employees Section -->
+            <div style="margin-bottom: var(--spacing-xl);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-lg);">
+                    <h2>Your Employees</h2>
+                    <a href="/add-employee" class="btn btn-primary btn-sm">+ Add Employee</a>
+                </div>
+
+                <div id="employeesList">
+                    {% if employees %}
+                        {% for employee in employees %}
+                            <div class="employee-card">
+                                <div class="employee-header">
+                                    <div class="employee-name">
+                                        <h3>{{ employee.first_name }} {{ employee.last_name }}</h3>
+                                        <div class="employee-meta">{{ employee.employment_type or 'Employee' }} • ID: {{ employee.id }}</div>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <div style="font-size: 0.85rem; color: var(--color-text-secondary);">Last Paystub</div>
+                                        <div style="font-weight: 600;">{{ employee.last_paystub_date or 'N/A' }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="employee-details">
+                                    <div class="detail-item">
+                                        <div class="detail-label">Last Gross</div>
+                                        <div class="detail-value">${{ "{:,.2f}".format(employee.last_gross or 0) }}</div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <div class="detail-label">Last Net</div>
+                                        <div class="detail-value">${{ "{:,.2f}".format(employee.last_net or 0) }}</div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <div class="detail-label">YTD Gross</div>
+                                        <div class="detail-value">${{ "{:,.2f}".format(employee.ytd_gross or 0) }}</div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <div class="detail-label">YTD Net</div>
+                                        <div class="detail-value">${{ "{:,.2f}".format(employee.ytd_net or 0) }}</div>
+                                    </div>
+                                </div>
+
+                                <div style="padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); margin-top: var(--spacing-lg);">
+                                    <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">Tax Summary This Year</p>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; font-size: 0.9rem;">
+                                        <div>
+                                            <div style="color: var(--color-text-secondary);">Federal</div>
+                                            <div style="font-weight: 600;">${{ "{:,.2f}".format(employee.ytd_federal_tax or 0) }}</div>
+                                        </div>
+                                        <div>
+                                            <div style="color: var(--color-text-secondary);">Social Security</div>
+                                            <div style="font-weight: 600;">${{ "{:,.2f}".format(employee.ytd_ss_tax or 0) }}</div>
+                                        </div>
+                                        <div>
+                                            <div style="color: var(--color-text-secondary);">Medicare</div>
+                                            <div style="font-weight: 600;">${{ "{:,.2f}".format(employee.ytd_medicare_tax or 0) }}</div>
+                                        </div>
+                                        <div>
+                                            <div style="color: var(--color-text-secondary);">State</div>
+                                            <div style="font-weight: 600;">${{ "{:,.2f}".format(employee.ytd_state_tax or 0) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="quick-actions" style="margin-top: var(--spacing-lg);">
+                                    <a href="/paystub-generator?employee={{ employee.id }}" class="btn btn-primary btn-sm">Generate</a>
+                                    <a href="/paystub-history?employee={{ employee.id }}" class="btn btn-secondary btn-sm">History</a>
+                                    <a href="/edit-employee?id={{ employee.id }}" class="btn btn-secondary btn-sm">Edit</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border); text-align: center;">
+                            <p style="color: var(--color-text-secondary); margin: 0 0 1rem 0;">No employees yet. Add your first employee to get started.</p>
+                            <a href="/add-employee" class="btn btn-primary">Add Employee</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Rewards Widget -->
+            <div class="rewards-widget">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-lg);">
+                    <div>
+                        <h3 style="margin: 0 0 var(--spacing-sm) 0;">🏆 Rewards Progress</h3>
+                        <div class="tier-badge">{{ rewards.current_tier or '🥉 Bronze' }} Tier</div>
+                    </div>
+                    <a href="/rewards" class="btn btn-primary btn-sm">View All</a>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>{{ rewards.current_points or 0 }} Points</span>
+                        <span>{{ rewards.points_to_next_tier or 250 }} to Next Tier</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: {{ rewards.progress_percentage or 0 }}%;"></div>
+                    </div>
+                </div>
+
+                <div style="margin-top: var(--spacing-lg);">
+                    <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">Recent Activity</p>
+                    <ul class="recent-activity">
+                        {% if rewards.recent_activities %}
+                            {% for activity in rewards.recent_activities %}
+                                <li><span class="activity-points">+{{ activity.points }} pts</span> - {{ activity.description }}</li>
+                            {% endfor %}
+                        {% else %}
+                            <li><span class="activity-points">+0 pts</span> - No recent activity</li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div style="background: var(--color-background-card); padding: var(--spacing-xl); border-radius: var(--radius-lg); border: 1px solid var(--color-border); margin-top: var(--spacing-xl);">
+                <h3>Recent Activity</h3>
+                <ul class="recent-activity" style="margin-top: var(--spacing-lg);">
+                    {% if recent_activity %}
+                        {% for activity in recent_activity %}
+                            <li>{{ activity.description }} ({{ activity.created_at }})</li>
+                        {% endfor %}
+                    {% else %}
+                        <li>No recent activity</li>
+                    {% endif %}
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Auto-refresh dashboard data every 30 seconds
+        setInterval(() => {
+            fetch('/api/dashboard/summary')
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('totalPaystubs').textContent = data.total_paystubs || '0';
+                    document.getElementById('ytdGross').textContent = '$' + (data.ytd_gross || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                    document.getElementById('ytdNet').textContent = '$' + (data.ytd_net || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                    document.getElementById('avgNet').textContent = '$' + (data.average_net || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                })
+                .catch(err => console.error('Error loading dashboard:', err));
+        }, 30000);
+    </script>
+{% endblock %}
+
