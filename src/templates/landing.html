@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ app_name }} - Professional Paystubs Made Simple</title>
+    <meta name="description" content="Generate bank-grade paystubs with accurate tax calculations, earn rewards for every action, and manage your finances with confidence. Trusted by over 15,000 professionals.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/Saurellius_logo.webp') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/Saurellius_Logo_Under_512KB.png') }}">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/apple-style.css') }}">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="{{ url_for('static', filename='img/Saurellius_logo.webp') }}" as="image">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="{{ url_for('landing') }}" class="navbar-brand">
+                <img src="{{ url_for('static', filename='img/Saurellius_logo.webp') }}" 
+                     alt="Saurellius Logo" 
+                     style="height: 32px; width: auto; margin-right: 8px;">
+                <span>Saurellius</span>
+            </a>
+            
+            <div class="navbar-nav">
+                {% if current_user %}
+                    <a href="{{ url_for('dashboard') }}" class="navbar-link">Dashboard</a>
+                    <a href="{{ url_for('paystub_generator') }}" class="navbar-link">Generate</a>
+                    <a href="{{ url_for('rewards_center') }}" class="navbar-link">Rewards</a>
+                    <div class="user-menu">
+                        <span class="navbar-link">{{ current_user.full_name }}</span>
+                    </div>
+                {% else %}
+                    <a href="{{ url_for('pricing') }}" class="navbar-link">Pricing</a>
+                    <a href="{{ url_for('login_page') }}" class="navbar-link">Sign In</a>
+                    <a href="{{ url_for('register_page') }}" class="btn btn-primary btn-sm">Get Started</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">
+                Professional Paystubs<br>
+                <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Made Simple</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                Generate bank-grade paystubs with accurate tax calculations, earn rewards 
+                for every action, and manage your finances with confidence. Trusted by over 
+                15,000 professionals.
+            </p>
+            
+            <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap; margin-bottom: var(--spacing-3xl);">
+                <a href="{{ url_for('register_page') }}" class="btn btn-primary btn-lg">
+                    Start Free Trial →
+                </a>
+                <a href="{{ url_for('pricing') }}" class="btn btn-secondary btn-lg">
+                    View Pricing
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section style="background: var(--color-white); padding: var(--spacing-4xl) 0;">
+        <div class="container">
+            <div class="dashboard-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); text-align: center;">
+                <div class="stat-card">
+                    <div class="stat-value" style="color: var(--color-primary-purple);">{{ stats.happy_users }}</div>
+                    <div class="stat-label">Happy Users</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-value" style="color: var(--color-primary-blue);">{{ stats.paystubs_generated }}</div>
+                    <div class="stat-label">Paystubs Generated</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-value" style="color: var(--color-primary-purple);">{{ stats.satisfaction_rate }}</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section style="background: var(--gradient-subtle); padding: var(--spacing-4xl) 0;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: var(--spacing-3xl);">
+                <h2 style="font-size: 2.5rem; margin-bottom: var(--spacing-lg);">
+                    Everything You Need for Professional Paystubs
+                </h2>
+                <p style="font-size: 1.125rem; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto;">
+                    From accurate tax calculations to reward points, we've built the most comprehensive paystub platform available.
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-xl);">
+                <!-- Bank-Grade Security -->
+                <div class="card">
+                    <div class="card-body">
+                        <div style="width: 48px; height: 48px; background: var(--gradient-primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: var(--spacing-lg);">
+                            <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                        </div>
+                        <h3 style="margin-bottom: var(--spacing-md);">Bank-Grade Security</h3>
+                        <p style="color: var(--color-text-secondary);">
+                            Snappt AI compliant with QR verification, document hashing, and enterprise-level encryption.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Accurate Tax Calculations -->
+                <div class="card">
+                    <div class="card-body">
+                        <div style="width: 48px; height: 48px; background: var(--gradient-primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: var(--spacing-lg);">
+                            <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                            </svg>
+                        </div>
+                        <h3 style="margin-bottom: var(--spacing-md);">100% Accurate Tax Calculations</h3>
+                        <p style="color: var(--color-text-secondary);">
+                            2025/2026 federal, all 50 states, territories, and local tax calculations with automatic updates.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- YTD Tracking -->
+                <div class="card">
+                    <div class="card-body">
+                        <div style="width: 48px; height: 48px; background: var(--gradient-primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: var(--spacing-lg);">
+                            <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                                <path d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zM4 19h16v2H4v-2zM20 3H4v10h16V3z"/>
+                            </svg>
+                        </div>
+                        <h3 style="margin-bottom: var(--spacing-md);">Intelligent YTD Tracking</h3>
+                        <p style="color: var(--color-text-secondary);">
+                            Automatic year-to-date continuation from previous paystubs for perfect accuracy.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Rewards System -->
+                <div class="card">
+                    <div class="card-body">
+                        <div style="width: 48px; height: 48px; background: var(--gradient-primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: var(--spacing-lg);">
+                            <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3 style="margin-bottom: var(--spacing-md);">Gamified Rewards System</h3>
+                        <p style="color: var(--color-text-secondary);">
+                            Earn points for every action, unlock tiers, and get exclusive benefits and discounts.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Professional Templates -->
+                <div class="card">
+                    <div class="card-body">
+                        <div style="width: 48px; height: 48px; background: var(--gradient-primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: var(--spacing-lg);">
+                            <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                            </svg>
+                        </div>
+                        <h3 style="margin-bottom: var(--spacing-md);">Professional PDF Generation</h3>
+                        <p style="color: var(--color-text-secondary);">
+                            Industry-standard templates indistinguishable from ADP, Gusto, and Paychex paystubs.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Multi-Employee Support -->
+                <div class="card">
+                    <div class="card-body">
+                        <div style="width: 48px; height: 48px; background: var(--gradient-primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: var(--spacing-lg);">
+                            <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                                <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A3.02 3.02 0 0 0 17.1 7H14.9c-1.3 0-2.4.84-2.85 2.06L9.5 18H12v6h8zM12.5 11.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5S11 9.17 11 10s.67 1.5 1.5 1.5zM5.5 6c1.11 0 2-.89 2-2s-.89-2-2-2-2 .89-2 2 .89 2 2 2zm2 16v-7H9V9.5C9 8.12 8.12 7 6.75 7h-2.5C3.12 7 2.25 8.12 2.25 9.5V15H4v7h3.5z"/>
+                            </svg>
+                        </div>
+                        <h3 style="margin-bottom: var(--spacing-md);">Multi-Employee Management</h3>
+                        <p style="color: var(--color-text-secondary);">
+                            Manage multiple employees with individual tax settings and YTD tracking.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section style="background: var(--color-white); padding: var(--spacing-4xl) 0;" id="pricing">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: var(--spacing-3xl);">
+                <h2 style="font-size: 2.5rem; margin-bottom: var(--spacing-lg);">
+                    Choose Your Plan
+                </h2>
+                <p style="font-size: 1.125rem; color: var(--color-text-secondary);">
+                    Select the plan that best fits your needs
+                </p>
+            </div>
+            
+            <div class="pricing-grid">
+                {% for plan in plans %}
+                <div class="pricing-card {% if plan.name == 'professional' %}popular{% endif %}">
+                    <div class="pricing-title">{{ plan.display_name }}</div>
+                    <div class="pricing-price">${{ plan.price_monthly|int }}</div>
+                    <div class="pricing-period">per month</div>
+                    
+                    <ul class="pricing-features">
+                        {% if plan.name == 'starter' %}
+                            <li>5 paystubs/month</li>
+                            <li>Basic templates</li>
+                            <li>Email support</li>
+                            <li>YTD tracking</li>
+                            <li>Rewards system</li>
+                        {% elif plan.name == 'professional' %}
+                            <li>15 paystubs/month</li>
+                            <li>Premium templates</li>
+                            <li>Priority support</li>
+                            <li>YTD calculations</li>
+                            <li>Advanced rewards</li>
+                            <li>Multi-employee support</li>
+                        {% elif plan.name == 'business' %}
+                            <li>50 paystubs/month</li>
+                            <li>All templates</li>
+                            <li>Phone support</li>
+                            <li>API access</li>
+                            <li>Bulk generation</li>
+                            <li>Custom branding</li>
+                        {% endif %}
+                    </ul>
+                    
+                    <a href="{{ url_for('register_page') }}?plan={{ plan.name }}" 
+                       class="btn {% if plan.name == 'professional' %}btn-primary{% else %}btn-secondary{% endif %}" 
+                       style="width: 100%;">
+                        Get Started
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background: var(--gradient-primary); padding: var(--spacing-4xl) 0; color: var(--color-text-inverse); text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: var(--spacing-lg); color: white;">
+                Ready to Get Started?
+            </h2>
+            <p style="font-size: 1.125rem; margin-bottom: var(--spacing-2xl); opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Join thousands of professionals who trust Saurellius for their paystub needs. 
+                Start your free trial today and experience the difference.
+            </p>
+            <a href="{{ url_for('register_page') }}" class="btn" style="background: white; color: var(--color-primary-blue); border: none; font-weight: var(--font-weight-semibold);">
+                Start Free Trial →
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--color-gray-900); color: var(--color-gray-300); padding: var(--spacing-3xl) 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-2xl); margin-bottom: var(--spacing-2xl);">
+                <!-- Company Info -->
+                <div>
+                    <div style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-lg);">
+                        <img src="{{ url_for('static', filename='img/Saurellius_logo.webp') }}" 
+                             alt="Saurellius Logo" 
+                             style="height: 24px; width: auto;">
+                        <span style="font-weight: var(--font-weight-bold); color: white;">Saurellius</span>
+                    </div>
+                    <p style="margin-bottom: var(--spacing-md);">
+                        {{ app_name }}<br>
+                        by {{ company_name }}
+                    </p>
+                    <p style="font-size: 0.875rem;">
+                        Professional paystub generation with bank-grade security and accurate tax calculations.
+                    </p>
+                </div>
+                
+                <!-- Product -->
+                <div>
+                    <h4 style="color: white; margin-bottom: var(--spacing-md);">Product</h4>
+                    <ul style="list-style: none; font-size: 0.875rem;">
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="{{ url_for('pricing') }}" style="color: var(--color-gray-300); text-decoration: none;">Pricing</a></li>
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="{{ url_for('security') }}" style="color: var(--color-gray-300); text-decoration: none;">Security</a></li>
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="{{ url_for('compliance') }}" style="color: var(--color-gray-300); text-decoration: none;">Compliance</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div>
+                    <h4 style="color: white; margin-bottom: var(--spacing-md);">Support</h4>
+                    <ul style="list-style: none; font-size: 0.875rem;">
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="{{ url_for('help_center') }}" style="color: var(--color-gray-300); text-decoration: none;">Help Center</a></li>
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="{{ url_for('contact') }}" style="color: var(--color-gray-300); text-decoration: none;">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Legal -->
+                <div>
+                    <h4 style="color: white; margin-bottom: var(--spacing-md);">Legal</h4>
+                    <ul style="list-style: none; font-size: 0.875rem;">
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="{{ url_for('terms_of_service') }}" style="color: var(--color-gray-300); text-decoration: none;">Terms of Service</a></li>
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="{{ url_for('privacy_policy') }}" style="color: var(--color-gray-300); text-decoration: none;">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid var(--color-gray-700); padding-top: var(--spacing-lg); text-align: center; font-size: 0.875rem;">
+                <p>&copy; {{ current_year }} {{ company_name }}. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, .stat-card, .pricing-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
