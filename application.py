@@ -14,7 +14,7 @@ from src.routes.paystub_advanced import paystub_advanced_bp
 from src.routes.dashboard import dashboard_bp
 
 app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'src', 'static'))
-app.config['SECRET_KEY'] = 'asdf#FGSgvasgf$5$WGT'
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY", 'asdf#FGSgvasgf$5$WGT')
 
 # Register blueprints
 app.register_blueprint(user_bp, url_prefix='/api')
@@ -24,12 +24,19 @@ app.register_blueprint(subscription_bp, url_prefix='/api/subscription')
 app.register_blueprint(paystub_advanced_bp, url_prefix='/api/paystubs')
 app.register_blueprint(dashboard_bp, url_prefix='/api/dashboard')
 
-# uncomment if you need to use database
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("SQLALCHEMY_DATABASE_URI", "postgresql://saurelliusadmin:ManusPassword123!@saurellius-db.cabe8skwsu5v.us-east-1.rds.amazonaws.com:5432/saurellius_db")
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# db.init_app(app)
-# with app.app_context():
-#     db.create_all() # Commented out to prevent startup failure due to DB connection
+# Database configuration and initialization
+db_uri = os.environ.get("SQLALCHEMY_DATABASE_URI")
+if db_uri:
+    app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
+    
+    db.init_app(app)
+    with app.app_context():
+        # Only create tables if the database URI is available
+        db.create_all() # Create tables on first run, idempotent
+
+
+
+
 
 # Health check endpoint for Elastic Beanstalk
 @app.route('/health', methods=['GET'])
