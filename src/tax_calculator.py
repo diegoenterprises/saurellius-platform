@@ -431,10 +431,10 @@ if __name__ == "__main__":
     payroll_filing_status = "single"
     payroll_taxes = calculate_federal_payroll_taxes(payroll_income, payroll_filing_status, year=2025)
     print(f"2025 Federal Payroll Taxes for income ${payroll_income} ({payroll_filing_status}):")
-    print(f"  Social Security: ${payroll_taxes["social_security"]:.2f}")
-    print(f"  Medicare: ${payroll_taxes["medicare"]:.2f}")
-    print(f"  Additional Medicare: ${payroll_taxes["additional_medicare"]:.2f}")
-    print(f"  Total Payroll Tax: ${payroll_taxes["total_payroll_tax"]:.2f}")
+    print(f"  Social Security: ${payroll_taxes['social_security']:.2f}")
+    print(f"  Medicare: ${payroll_taxes['medicare']:.2f}")
+    print(f"  Additional Medicare: ${payroll_taxes['additional_medicare']:.2f}")
+    print(f"  Total Payroll Tax: ${payroll_taxes['total_payroll_tax']:.2f}")
 
     print("\n--- American Samoa Tax Calculation ---")
     # Test American Samoa Tax Calculation
