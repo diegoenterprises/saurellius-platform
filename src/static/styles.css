@@ -7,8 +7,8 @@
 
 :root {
     --primary-purple: #7C3AED;
-    --primary-pink: #EC4899;
-    --gradient: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+    --primary-blue: #3B82F6;
+    --gradient: linear-gradient(135deg, #7C3AED 0%, #3B82F6 100%);
     --dark-bg: #1F2937;
     --light-bg: #F9FAFB;
     --white: #FFFFFF;
