@@ -15,6 +15,7 @@ from src.routes.paystub_advanced import paystub_advanced_bp
 from src.routes.paystub_complete import paystub_complete_bp
 from src.routes.dashboard import dashboard_bp
 from src.routes.employee import employee_bp
+from src.routes.paystub_integrated import paystub_integrated_bp
 
 app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'src', 'static'))
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY", 'asdf#FGSgvasgf$5$WGT')
@@ -32,6 +33,7 @@ app.register_blueprint(paystub_advanced_bp, url_prefix='/api/paystubs')
 app.register_blueprint(paystub_complete_bp, url_prefix='/api/paystubs')
 app.register_blueprint(dashboard_bp, url_prefix='/api/dashboard')
 app.register_blueprint(employee_bp, url_prefix='/api/employees')
+app.register_blueprint(paystub_integrated_bp)
 
 # Database configuration and initialization
 db_uri = os.environ.get("SQLALCHEMY_DATABASE_URI")
@@ -41,7 +43,11 @@ if db_uri:
     db.init_app(app)
     with app.app_context():
         # Import models to ensure they're registered
-        from src.models.user import User, Employee, Company, Paystub, RewardActivity, Subscription, create_initial_subscriptions
+        from src.models.user import User, RewardActivity, Subscription, create_initial_subscriptions
+        from src.models.employee import Employee
+        from src.models.paystub import Paystub
+        from src.models.company import Company
+        from src.models.tax_rates import TaxRates2025, FederalPayrollTaxConfig
         
         # Create tables on first run (idempotent)
         db.create_all()
