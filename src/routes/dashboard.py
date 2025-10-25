@@ -107,9 +107,29 @@ def get_dashboard_summary(current_user):
             elif emp.pay_frequency == 'BiWeekly':
                 next_pay_date = pay_date + timedelta(days=14)
             elif emp.pay_frequency == 'SemiMonthly':
-                next_pay_date = pay_date + timedelta(days=15)
+                # Logic from deployment guide
+                if pay_date.day == 15:
+                    # Go to last day of current month
+                    next_month = pay_date.replace(day=28) + timedelta(days=4)
+                    next_pay_date = next_month.replace(day=1) - timedelta(days=1)
+                else:
+                    # Go to 15th of next month
+                    if pay_date.month == 12:
+                        next_pay_date = pay_date.replace(year=pay_date.year + 1, month=1, day=15)
+                    else:
+                        next_pay_date = pay_date.replace(month=pay_date.month + 1, day=15)
             elif emp.pay_frequency == 'Monthly':
-                next_pay_date = pay_date + timedelta(days=30)
+                # Logic from deployment guide
+                if pay_date.month == 12:
+                    next_pay_date = pay_date.replace(year=pay_date.year + 1, month=1, day=pay_date.day)
+                else:
+                    # Handle day in month overflow (e.g. 31st to Feb)
+                    try:
+                        next_pay_date = pay_date.replace(month=pay_date.month + 1)
+                    except ValueError:
+                        # Go to last day of next month
+                        next_month = pay_date.replace(day=28) + timedelta(days=4)
+                        next_pay_date = next_month.replace(day=1) - timedelta(days=1)
         
         employee_cards.append({
             'employee_id': emp.id,

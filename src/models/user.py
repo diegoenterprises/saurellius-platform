@@ -321,14 +321,60 @@ class Paystub(db.Model):
     ytd_vision_insurance = db.Column(db.Numeric(12, 2), default=0)
     ytd_hsa_contribution = db.Column(db.Numeric(12, 2), default=0)
     ytd_net_pay = db.Column(db.Numeric(12, 2), nullable=False)
+
+    # PTO Balances (as of this paystub)
+    vacation_accrued_this_period = db.Column(db.Numeric(8, 2), default=0)
+    vacation_used_this_period = db.Column(db.Numeric(8, 2), default=0)
+    vacation_balance = db.Column(db.Numeric(8, 2), default=0)
+
+    sick_accrued_this_period = db.Column(db.Numeric(8, 2), default=0)
+    sick_used_this_period = db.Column(db.Numeric(8, 2), default=0)
+    sick_balance = db.Column(db.Numeric(8, 2), default=0)
+
+    personal_accrued_this_period = db.Column(db.Numeric(8, 2), default=0)
+    personal_used_this_period = db.Column(db.Numeric(8, 2), default=0)
+    personal_balance = db.Column(db.Numeric(8, 2), default=0)
+
+    # Verification & Security (for audit trail, not generation)
+    verification_id = db.Column(db.String(50), unique=True)
+    document_hash = db.Column(db.String(64))
+    document_serial = db.Column(db.String(100), unique=True)
+    qr_code_data = db.Column(db.Text)
+
+    # PDF Storage
+    pdf_s3_bucket = db.Column(db.String(255))
+    pdf_s3_key = db.Column(db.Text)
+    pdf_url = db.Column(db.Text)
+    pdf_generated_at = db.Column(db.DateTime)
+    pdf_file_size_bytes = db.Column(db.Integer)
+
+    # Tax Calculation Details
+    tax_calculation_method = db.Column(db.String(50))
+    federal_tax_bracket_used = db.Column(db.String(20))
+    state_tax_bracket_used = db.Column(db.String(20))
+    tax_engine_version = db.Column(db.String(20))
+    tax_details = db.Column(db.Text)  # JSON string for backward compatibility
+
+    # Metadata
+    generated_by_user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    is_void = db.Column(db.Boolean, default=False)
+    void_reason = db.Column(db.Text)
+    voided_at = db.Column(db.DateTime)
+    voided_by_user_id = db.Column(db.Integer)
+
+    notes = db.Column(db.Text)
+    internal_memo = db.Column(db.Text)
     
     # Social Security Wage Base Tracking
     ytd_ss_wages = db.Column(db.Numeric(12, 2), default=0)
     ss_wage_base_reached = db.Column(db.Boolean, default=False)
     ss_wage_base_limit = db.Column(db.Numeric(12, 2), default=168600.00)
+    ss_wage_base_reached = db.Column(db.Boolean, default=False)
+    ss_wage_base_limit = db.Column(db.Numeric(12, 2), default=168600.00)
     
     # Medicare Tracking
     ytd_medicare_wages = db.Column(db.Numeric(12, 2), default=0)
+    additional_medicare_threshold_reached = db.Column(db.Boolean, default=False)
     additional_medicare_threshold_reached = db.Column(db.Boolean, default=False)
     
     # PTO Balances
