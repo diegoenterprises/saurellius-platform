@@ -8,6 +8,7 @@
     <link rel="apple-touch-icon" href="/logo512.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/animations.css">
 </head>
 <body>
     <!-- LANDING PAGE -->
@@ -45,15 +46,15 @@
             <div class="container">
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <h3 class="stat-number">15,000+</h3>
+                        <h3 class="stat-number" data-target="15000" data-suffix="+">0</h3>
                         <p class="stat-label">Happy Users</p>
                     </div>
                     <div class="stat-card">
-                        <h3 class="stat-number">125,000+</h3>
+                        <h3 class="stat-number" data-target="125000" data-suffix="+">0</h3>
                         <p class="stat-label">Paystubs Generated</p>
                     </div>
                     <div class="stat-card">
-                        <h3 class="stat-number">98%</h3>
+                        <h3 class="stat-number" data-target="98" data-suffix="%">0</h3>
                         <p class="stat-label">Satisfaction Rate</p>
                     </div>
                 </div>
@@ -66,7 +67,7 @@
                 <h2 class="section-title">Why Choose Saurellius?</h2>
                 <div class="features-grid">
                     <div class="feature-card">
-                        <div class="feature-icon">🔒</div>
+                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
                         <h3>Bank-Grade Security</h3>
                         <p>Snappt AI compliant with QR verification and document hashing for maximum authenticity</p>
                     </div>
@@ -76,12 +77,12 @@
                         <p>2025/2026 federal, state, and local tax calculations for all 50 states and territories</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">⚡</div>
+                        <div class="feature-icon"><i class="fas fa-bolt"></i></div>
                         <h3>Lightning Fast</h3>
                         <p>Generate professional paystubs in minutes, not hours. Perfect for apartment applications</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🎯</div>
+                        <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
                         <h3>Smart YTD Tracking</h3>
                         <p>Automatic year-to-date calculations that continue perfectly from your last paystub</p>
                     </div>
@@ -320,6 +321,8 @@
         </div>
     </div>
 
+    <script src="/animations.js"></script>
+    <script src="/state_aware_form.js"></script>
     <script src="/app.js"></script>
 </body>
 </html>
