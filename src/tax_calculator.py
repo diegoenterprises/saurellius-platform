@@ -239,6 +239,51 @@ def calculate_federal_income_tax(income, filing_status, calculation_date=None):
 
     return total_tax
 
+def calculate_federal_income_tax_withholding(annual_income, filing_status, pay_frequency, calculation_date=None, allowances=0, extra_withholding=0):
+    """
+    Calculates the federal income tax withholding for a single pay period using the annualization method.
+    This is a simplified approach based on the annual tax liability.
+    A more complex method would use the IRS Publication 15-T tables and formulas.
+    """
+    if calculation_date is None:
+        calculation_date = datetime.date.today()
+
+    # 1. Annualize the income (simplified: assume annual_income is the calculated taxable income)
+    # For simplicity, we use the provided annual_income as the basis for annual tax calculation.
+    # In a real-world scenario, the income for the period would be annualized (e.g., period_income * periods_per_year).
+    
+    # 2. Calculate the Annual Tax Liability
+    annual_tax_liability = calculate_federal_income_tax(annual_income, filing_status, calculation_date)
+
+    # 3. Determine the number of pay periods per year
+    periods_per_year = {
+        "weekly": 52,
+        "biweekly": 26,
+        "semimonthly": 24,
+        "monthly": 12,
+        "quarterly": 4,
+        "semiannually": 2,
+        "annually": 1
+    }.get(pay_frequency.lower(), 1)
+
+    # 4. Calculate the tax per pay period
+    tax_per_period = annual_tax_liability / periods_per_year
+    
+    # 5. Apply extra withholding
+    tax_per_period += extra_withholding
+
+    # Ensure tax is not negative
+    return max(0, tax_per_period)
+
+def calculate_local_income_tax(income, jurisdiction_code, filing_status, calculation_date=None):
+    """
+    Placeholder for local income tax calculation.
+    This function would look up local tax rates and rules based on the jurisdiction_code.
+    For now, it returns 0 as the specific local tax data is not available.
+    """
+    # A robust implementation would involve a large data structure similar to the state tax data.
+    return 0.00
+
 def calculate_federal_payroll_taxes(gross_income, filing_status, year=2025):
     if year != 2025: # Only 2025 data is available for now
         raise ValueError("Only 2025 federal payroll tax data is currently available.")
@@ -364,6 +409,7 @@ def calculate_puerto_rico_income_tax(gross_income, filing_status, dependents=0, 
 
     return total_tax
 
+
 def calculate_state_income_tax(income, filing_status, state, calculation_date=None):
     if calculation_date is None:
         calculation_date = datetime.date.today()
@@ -373,6 +419,9 @@ def calculate_state_income_tax(income, filing_status, state, calculation_date=No
     # Handle states with no income tax
     if not state_tax_data["tax_brackets"]["single"] and not state_tax_data["tax_brackets"]["married_filing_jointly"]:
         return 0
+
+    # Check for SDI/Payroll tax rate. If present, it will be calculated in calculate_state_payroll_taxes
+    # The main income tax calculation proceeds below.
 
     # Determine filing status key for state data
     state_filing_status = "single" if filing_status == "single" else "married_filing_jointly"
@@ -407,6 +456,44 @@ def calculate_state_income_tax(income, filing_status, state, calculation_date=No
             break
 
     return max(0, total_tax - tax_credit)
+
+def calculate_state_payroll_taxes(gross_income, state, ytd_wages, calculation_date=None):
+    """
+    Calculates state-level payroll taxes (e.g., SUI, SDI, FLI) based on state-specific wage bases.
+    This is a simplified placeholder and requires comprehensive state-specific data.
+    """
+    if calculation_date is None:
+        calculation_date = datetime.date.today()
+
+    state_tax_data = get_tax_data(calculation_date, jurisdiction=state)
+
+    # Initialize results
+    state_payroll_taxes = {
+        "sdi": 0.00, # State Disability Insurance
+        "sui": 0.00, # State Unemployment Insurance (Employee Contribution)
+        "fli": 0.00, # Family Leave Insurance (Employee Contribution)
+        "total": 0.00
+    }
+    
+    # Placeholder logic for states with mandatory employee contributions (CA, NY, NJ, RI, HI, PR)
+    # The `state_tax_data` structure should be extended to include these rates and wage bases.
+
+    # Example: California SDI (Simplified)
+    if state == "Calif":
+        sdi_rate = state_tax_data.get("sdi_employee_rate", 0.011) # Example rate
+        sdi_wage_base = state_tax_data.get("sdi_wage_base", 153164) # Example wage base
+        
+        # Calculate taxable wages for this period
+        taxable_wages_ytd = min(ytd_wages, sdi_wage_base)
+        taxable_wages_this_period = min(gross_income, sdi_wage_base - taxable_wages_ytd)
+        
+        sdi_tax = max(0, taxable_wages_this_period * sdi_rate)
+        state_payroll_taxes["sdi"] = sdi_tax
+        state_payroll_taxes["total"] += sdi_tax
+        
+    # Add logic for other states (NY, NJ, RI, HI, PR) as data becomes available.
+    
+    return state_payroll_taxes
 
 # Example Usage (for testing)
 if __name__ == "__main__":
@@ -473,6 +560,14 @@ if __name__ == "__main__":
     state_tax = calculate_state_income_tax(state_income, state_filing_status, state, datetime.date(2025, 6, 1))
     print(f"2025 {state} Tax for {state_filing_status} with income ${state_income}: ${state_tax:.2f}")
 
+    print("\n--- Federal Income Tax Withholding Calculation ---")
+    withholding_tax = calculate_federal_income_tax_withholding(income_2026_fed, filing_status_2026_fed, "Biweekly", datetime.date(2026, 1, 1), extra_withholding=20.00)
+    print(f"2026 Federal Withholding (Biweekly) for income ${income_2026_fed}: ${withholding_tax:.2f}")
+    
+    print("\n--- State Payroll Tax Calculation (Example: California SDI) ---")
+    sdi_taxes = calculate_state_payroll_taxes(5000, "Calif", 100000, datetime.date(2025, 6, 1))
+    print(f"2025 California SDI for gross $5000 (YTD $100000): ${sdi_taxes['sdi']:.2f}")
+    
     print("\n--- State Tax Calculation (Example: Washington - no income tax) ---")
     state_income_no_tax = 100000
     state_filing_status_no_tax = "single"
