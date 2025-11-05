@@ -1,7 +1,7 @@
 """
 Complete Employee Model - All 61 Fields from Deployment Guide
 """
-from src.models.user import db
+from src.models.database import db
 from datetime import datetime
 from sqlalchemy.dialects.postgresql import UUID, JSONB
 import uuid
@@ -11,8 +11,8 @@ class Employee(db.Model):
     
     # Primary identification
     id = db.Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    user_id = db.Column(UUID(as_uuid=True), db.ForeignKey('users.id'), nullable=False)
-    company_id = db.Column(UUID(as_uuid=True), db.ForeignKey('companies.id'), nullable=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    company_id = db.Column(db.Integer, db.ForeignKey('companies.id'), nullable=True)
     
     # Personal Information
     first_name = db.Column(db.String(100), nullable=False)
@@ -96,9 +96,12 @@ class Employee(db.Model):
     
     # PTO Accrual Rates (hours per pay period)
     pto_vacation_accrual_rate = db.Column(db.Numeric(8, 4), default=0)
+    pto_vacation_balance = db.Column(db.Numeric(8, 4), default=0)
 
     pto_sick_accrual_rate = db.Column(db.Numeric(8, 4), default=0)
+    pto_sick_balance = db.Column(db.Numeric(8, 4), default=0)
     pto_personal_accrual_rate = db.Column(db.Numeric(8, 4), default=0)
+    pto_personal_balance = db.Column(db.Numeric(8, 4), default=0)
 
     
     # Union Information

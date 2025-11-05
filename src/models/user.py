@@ -72,41 +72,6 @@ class User(db.Model):
 
 
 
-    __tablename__ = 'companies'
-    
-    id = db.Column(db.Integer, primary_key=True)
-    uuid = db.Column(db.String(36), unique=True, default=lambda: str(__import__('uuid').uuid4()))
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False, index=True)
-    
-    # Company Info
-    legal_name = db.Column(db.String(255), nullable=False)
-    dba_name = db.Column(db.String(255))
-    ein = db.Column(db.String(10), nullable=False, index=True)
-    state_tax_id = db.Column(db.String(50))
-    
-    # Address
-    address_street = db.Column(db.String(255))
-    address_city = db.Column(db.String(100))
-    address_state = db.Column(db.String(2))
-    address_zip = db.Column(db.String(10))
-    
-    # Contact
-    phone = db.Column(db.String(20))
-    email = db.Column(db.String(255))
-    
-    # Business Details
-    industry_type = db.Column(db.String(100))
-    business_structure = db.Column(db.String(50))
-    
-    # Branding
-    company_logo_url = db.Column(db.Text)
-    
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    
-
-
-
 
 class RewardActivity(db.Model):
     __tablename__ = 'reward_activities'
