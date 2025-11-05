@@ -556,7 +556,7 @@ if __name__ == "__main__":
     # Test State Tax Calculation
     state_income = 80000
     state_filing_status = "single"
-    state = "Calif"
+    state = "California"
     state_tax = calculate_state_income_tax(state_income, state_filing_status, state, datetime.date(2025, 6, 1))
     print(f"2025 {state} Tax for {state_filing_status} with income ${state_income}: ${state_tax:.2f}")
 
@@ -571,7 +571,7 @@ if __name__ == "__main__":
     print("\n--- State Tax Calculation (Example: Washington - no income tax) ---")
     state_income_no_tax = 100000
     state_filing_status_no_tax = "single"
-    state_no_tax = "Wash"
+    state_no_tax = "Washington"
     state_tax_no_tax = calculate_state_income_tax(state_income_no_tax, state_filing_status_no_tax, state_no_tax, datetime.date(2025, 6, 1))
     print(f"2025 {state_no_tax} Tax for {state_filing_status_no_tax} with income ${state_income_no_tax}: ${state_tax_no_tax:.2f}")
 
