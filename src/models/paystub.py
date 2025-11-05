@@ -6,6 +6,7 @@ from datetime import datetime
 from sqlalchemy.dialects.postgresql import UUID, JSONB
 import uuid
 
+
 class Paystub(db.Model):
     __tablename__ = 'paystubs'
     

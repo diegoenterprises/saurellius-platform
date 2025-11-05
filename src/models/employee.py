@@ -96,14 +96,10 @@ class Employee(db.Model):
     
     # PTO Accrual Rates (hours per pay period)
     pto_vacation_accrual_rate = db.Column(db.Numeric(8, 4), default=0)
-    pto_vacation_balance = db.Column(db.Numeric(8, 2), default=0)
-    pto_sick_balance = db.Column(db.Numeric(8, 2), default=0)
-    pto_personal_balance = db.Column(db.Numeric(8, 2), default=0)
+
     pto_sick_accrual_rate = db.Column(db.Numeric(8, 4), default=0)
     pto_personal_accrual_rate = db.Column(db.Numeric(8, 4), default=0)
-    pto_vacation_balance = db.Column(db.Numeric(8, 2), default=0)
-    pto_sick_balance = db.Column(db.Numeric(8, 2), default=0)
-    pto_personal_balance = db.Column(db.Numeric(8, 2), default=0)
+
     
     # Union Information
     union_member = db.Column(db.Boolean, default=False)

@@ -1,0 +1,14 @@
+*.bak
+*_backup.py
+complete_*.py
+*~
+*.pyc
+__pycache__/
+.git/
+.gitignore
+*.log
+venv/
+env/
+.DS_Store
+src/models/complete_models.py
+src/main_complete.py
