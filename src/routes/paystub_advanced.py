@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request, send_file
 from src.models.database import db
-from src.models.user import User, Employee, Paystub, RewardActivity
+from src.models.user import User, RewardActivity\nfrom src.models.employee import Employee\nfrom src.models.paystub import Paystub
 from src.routes.auth import token_required
 from src.snappt_compliant_generator import generate_snappt_compliant_paystub
 from src.tax_calculator import calculate_federal_income_tax, calculate_federal_payroll_taxes, calculate_state_income_tax
