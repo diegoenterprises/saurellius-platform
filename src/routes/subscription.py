@@ -11,7 +11,7 @@ DOMAIN = os.environ.get("DOMAIN", "http://localhost:5000")
 
 @subscription_bp.route('/plans', methods=['GET'])
 def get_plans():
-    plans = Subscription.query.all()
+    plans = db.session.execute(db.select(Subscription)).scalars().all()
     return jsonify([
         {
             "id": p.id,
@@ -28,7 +28,7 @@ def create_checkout_session(current_user):
     data = request.get_json()
     plan_id = data.get('plan_id')
     
-    plan = Subscription.query.get(plan_id)
+    plan = db.session.execute(db.select(Subscription).filter_by(id=plan_id)).scalar_one_or_none()
     if not plan:
         return jsonify({'message': 'Invalid plan ID'}), 404
 
@@ -96,8 +96,8 @@ def stripe_webhook():
         user_id = session['metadata']['user_id']
         plan_id = session['metadata']['plan_id']
         
-        user = User.query.get(user_id)
-        plan = Subscription.query.get(plan_id)
+        user = db.session.execute(db.select(User).filter_by(id=user_id)).scalar_one_or_none()
+        plan = db.session.execute(db.select(Subscription).filter_by(id=plan_id)).scalar_one_or_none()
         
         if user and plan:
             user.subscription_id = plan.id
@@ -109,7 +109,7 @@ def stripe_webhook():
         subscription = event['data']['object']
         customer_id = subscription['customer']
         
-        user = User.query.filter_by(stripe_customer_id=customer_id).first()
+        user = db.session.execute(db.select(User).filter_by(stripe_customer_id=customer_id)).scalar_one_or_none()
         if user:
             user.is_active_subscriber = False
             user.subscription_id = None

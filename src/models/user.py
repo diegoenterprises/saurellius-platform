@@ -104,7 +104,7 @@ class Subscription(db.Model):
 
 # Initialize subscription plans
 def create_initial_subscriptions():
-    if not Subscription.query.first():
+    if not db.session.execute(db.select(Subscription)).first():
         db.session.add_all([
             Subscription(
                 name="Starter", 
