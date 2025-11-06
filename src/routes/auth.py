@@ -28,7 +28,7 @@ def token_required(f):
         
         try:
             data = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
-            current_user = User.query.filter_by(id=data['id']).first()
+            current_user = db.session.execute(db.select(User).filter_by(id=data['id'])).scalar_one_or_none()
         except:
             return jsonify({'message': 'Token is invalid!'}), 401
         
@@ -50,7 +50,7 @@ def register():
     if not name or not email or not password:
         return jsonify({'message': 'Missing name, email, or password'}), 400
     
-    if User.query.filter_by(email=email).first():
+    if db.session.execute(db.select(User).filter_by(email=email)).scalar_one_or_none():
         return jsonify({'message': 'Email already exists'}), 409
     
     hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
@@ -90,7 +90,7 @@ def login():
     if not auth or not auth.get('email') or not auth.get('password'):
         return jsonify({'message': 'Could not verify'}), 401
     
-    user = User.query.filter_by(email=auth['email']).first()
+    user = db.session.execute(db.select(User).filter_by(email=auth['email'])).scalar_one_or_none()
     
     if not user or not check_password_hash(user.password_hash, auth['password']):
         return jsonify({'message': 'Could not verify'}), 401

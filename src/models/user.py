@@ -74,6 +74,7 @@ class User(db.Model):
 
 
 class RewardActivity(db.Model):
+    __table_args__ = {"extend_existing": True}
     __tablename__ = 'reward_activities'
     
     id = db.Column(db.Integer, primary_key=True)
@@ -87,6 +88,7 @@ class RewardActivity(db.Model):
 
 
 class Subscription(db.Model):
+    __table_args__ = {"extend_existing": True}
     __tablename__ = 'subscriptions'
     
     id = db.Column(db.Integer, primary_key=True)
