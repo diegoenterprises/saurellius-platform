@@ -1,6 +1,9 @@
 from flask import Blueprint, jsonify, request
 from src.models.database import db
-from src.models.user import User, Employee, Paystub, RewardActivity, Company
+from src.models.user import User, RewardActivity
+from src.models.employee import Employee
+from src.models.paystub import Paystub
+from src.models.company import Company
 from src.routes.auth import token_required
 from sqlalchemy import func, extract, desc
 from datetime import datetime, date

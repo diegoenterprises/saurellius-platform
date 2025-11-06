@@ -1,6 +1,9 @@
 from flask import Blueprint, jsonify, request, send_file
 from src.models.database import db
-from src.models.user import User, Employee, Paystub, Company
+from src.models.user import User
+from src.models.employee import Employee
+from src.models.paystub import Paystub
+from src.models.company import Company
 from src.routes.auth import token_required
 from src.utils.ytd_calculator import (
     calculate_ytd_from_previous,

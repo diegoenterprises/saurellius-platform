@@ -1,7 +1,7 @@
 """
 Complete Paystub Model - All 117 Fields from Deployment Guide
 """
-from src.models.user import db
+from src.models.database import db
 from datetime import datetime
 from sqlalchemy.dialects.postgresql import UUID, JSONB
 import uuid
