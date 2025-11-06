@@ -3,7 +3,8 @@ YTD (Year-to-Date) Calculator and Smart Continuation Logic
 This module handles automatic YTD tracking and continuation from previous paystubs
 """
 
-from src.models.user import Paystub, Employee
+from src.models.paystub import Paystub
+from src.models.employee import Employee
 from sqlalchemy import func, extract, desc
 from datetime import datetime, date, timedelta
 from decimal import Decimal

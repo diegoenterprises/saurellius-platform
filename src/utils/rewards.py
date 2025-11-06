@@ -149,7 +149,7 @@ def get_user_achievements(user_id):
         return []
     
     # Get paystub count
-    from src.models.user import Paystub
+    from src.models.paystub import Paystub
     paystub_count = Paystub.query.filter_by(user_id=user_id, is_void=False).count()
     
     achievements = [
