@@ -1,10 +1,10 @@
 from flask import Blueprint, jsonify, request
 from src.models.database import db
-from src.models.user import User\nfrom src.models.employee import Employee\nfrom src.models.company import Company\nfrom src.models.paystub import Paystub
+from src.models.user import User
+from src.models.employee import Employee
+from src.models.company import Company
+from src.models.paystub import Paystub
 from src.routes.auth import token_required
-from datetime import datetime
-from cryptography.fernet import Fernet
-import os
 import base64
 
 employee_bp = Blueprint('employee', __name__)

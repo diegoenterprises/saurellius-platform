@@ -4,10 +4,6 @@ from src.models.user import User, RewardActivity
 from src.models.employee import Employee
 from src.models.paystub import Paystub
 from src.routes.auth import token_required
-from src.snappt_compliant_generator import generate_snappt_compliant_paystub
-from src.tax_calculator import calculate_federal_income_tax, calculate_federal_payroll_taxes, calculate_state_income_tax
-from datetime import datetime
-import json
 import io
 
 paystub_advanced_bp = Blueprint("paystub_advanced", __name__)
