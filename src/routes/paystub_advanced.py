@@ -4,10 +4,6 @@ from src.models.user import User, RewardActivity
 from src.models.employee import Employee
 from src.models.paystub import Paystub
 from src.routes.auth import token_required
-import io
-
-paystub_advanced_bp = Blueprint("paystub_advanced", __name__)
-
 PAYSTUB_REWARD_POINTS = 50
 
 def calculate_ytd_for_employee(employee_id):
