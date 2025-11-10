@@ -4,10 +4,6 @@ from src.models.user import User, RewardActivity
 from src.models.employee import Employee
 from src.models.paystub import Paystub
 from src.routes.auth import token_required
-PAYSTUB_REWARD_POINTS = 50
-
-def calculate_ytd_for_employee(employee_id):
-    """Calculates the current YTD gross and net pay for an employee."""
     paystubs = Paystub.query.filter_by(employee_id=employee_id).all()
     ytd_gross = sum(p.gross_pay for p in paystubs)
     ytd_net = sum(p.net_pay for p in paystubs)
